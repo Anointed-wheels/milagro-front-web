@@ -1,0 +1,90 @@
+@media (max-width: 900px) {
+    .nav-toggle{
+        display: none;
+    }
+    .hero-section{
+        display: block;
+    }
+    .written-words{
+        width: 100%;
+        height: 50%;
+        /* background-color: yellow; */
+        position: absolute;
+        top: 5%;
+    }
+    .video-container{
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 70%;
+        bottom: 0%;
+        /* justify-self: baseline; */
+    }   
+    .btn-holder p{
+        font-size: clamp(12px, 4dvw, 14px);
+    }
+    .btn-holder{
+        height: 5dvh;
+        width: 75%;
+    }
+    .egg-white{
+        display: block;
+    }
+    .egg-right{
+        top: 0;
+        width: 100%;
+        height: auto;
+        left: 0;
+        margin-left: 2vw;
+    }
+    .inject-holder{
+        top: 40%;
+        width: 100%;
+        height: auto;
+        left: 0;
+
+    }
+    .ick{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #alone:hover{
+        /* color: tomato; */
+        cursor: pointer;
+        
+    }
+    .mode{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10%;
+        /* position: absolute; */
+        left: 65%;
+        top: 40%;
+    }
+    .why-down {
+    flex-wrap: wrap;
+  }
+
+  .side-side {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+  .services-content {
+    flex-direction: column;
+  }
+
+  .services-header h2 {
+    font-size: 28px;
+  }
+  .service-section,
+  .service-section.reverse {
+    flex-direction: column-reverse;
+    padding: 60px 5%;
+  }
+
+  .service-text h3 {
+    font-size: 20px;
+  }
+}
