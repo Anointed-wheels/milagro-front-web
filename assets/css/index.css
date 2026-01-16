@@ -126,6 +126,60 @@ body{
     opacity: 1;
 }
 
+.hamburger {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100000;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #333;
+    border-radius: 3px;
+    transition: all 0.35s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    z-index: 99998;
+}
+
+.nav-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+
 .hero-section{
     width: 100dvw;
     height: 110dvh;
@@ -1020,6 +1074,70 @@ body{
     }
 }
 
+.footer-social {
+    text-align: center;
+    margin: 40px 0 20px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.footer-social a {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    color: #fff;
+
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+
+    position: relative;
+    overflow: hidden;
+
+    transition: 
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Glow ring */
+.footer-social a::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: linear-gradient(
+        45deg,
+        #57b9ea,
+        #fbce60,
+        #57b9ea
+    );
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.35s;
+    z-index: -1;
+}
+
+.footer-social a:hover::before {
+    opacity: 1;
+}
+
+.footer-social a:hover {
+    transform: translateY(-6px) scale(1.08);
+    background: rgba(87,185,234,0.15);
+    box-shadow: 0 12px 30px rgba(87,185,234,0.45);
+}
+
+/* Mobile tap feedback */
+.footer-social a:active {
+    transform: scale(0.95);
+}
 
 .staff-section {
   padding: 100px 20px;

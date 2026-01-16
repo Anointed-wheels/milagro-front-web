@@ -172,3 +172,4 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 items.forEach(item => observer.observe(nose));
+

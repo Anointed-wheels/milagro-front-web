@@ -77,3 +77,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // Recalculate Z on resize
   window.addEventListener('resize', setupCaro);
 });
+const navToggle = document.getElementById('navToggle');
+const ulHolder = document.querySelector('.ul-holder');
+
+// navToggle.addEventListener('click', () => {
+//     ulHolder.classList.toggle('open');
+//     navToggle.classList.toggle('active');
+
+// });
+
+// // Close menu when clicking a nav item (mobile)
+// menuItems.forEach(item => {
+//     item.addEventListener('click', () => {
+//         ulHolder.classList.remove('open');
+//     });
+// });
+
+// const navToggle = document.getElementById('navToggle');
+// const ulHolder = document.querySelector('.ul-holder');
+const navOverlay = document.getElementById('navOverlay');
+
+function closeMenu() {
+    ulHolder.classList.remove('open');
+    navToggle.classList.remove('active');
+    navOverlay.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function openMenu() {
+    ulHolder.classList.add('open');
+    navToggle.classList.add('active');
+    navOverlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+navToggle.addEventListener('click', () => {
+    ulHolder.classList.contains('open') ? closeMenu() : openMenu();
+});
