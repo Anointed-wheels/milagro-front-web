@@ -40,9 +40,13 @@
     .inject-holder{
         top: 40%;
         width: 100%;
-        height: auto;
+        height: 40%;
         left: 0;
-
+        overflow: hidden;
+    }
+    .inject-holder img{
+        width: 100%;
+        height: auto;
     }
     .ick{
         display: flex;
@@ -86,5 +90,16 @@
 
   .service-text h3 {
     font-size: 20px;
+  }
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 40px 25px;
   }
 }

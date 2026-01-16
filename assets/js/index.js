@@ -100,3 +100,45 @@ setInterval(() => {
 
 // Initialize
 updateCarousel(false);
+
+
+document.querySelectorAll('.info-card.clickable').forEach(card => {
+  card.addEventListener('click', () => {
+    const action = card.dataset.action;
+
+    if (action === 'call') {
+      window.location.href = 'tel:+2348012345678';
+    }
+
+    if (action === 'whatsapp') {
+      window.open('https://wa.me/2348012345678', '_blank');
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target); // run once
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  document.querySelectorAll(".fade-up").forEach(el => {
+    observer.observe(el);
+  });
+});
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+
+    question.addEventListener('click', () => {
+        item.classList.toggle('active');
+    });
+});
