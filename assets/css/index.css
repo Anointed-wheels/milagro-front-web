@@ -385,6 +385,7 @@ body{
     padding: 80px 8%;
     background-color: #ffffff;
     font-family: Arial, sans-serif;
+    width: 100dvw;
 }
 
 
@@ -461,7 +462,7 @@ body{
 
 
 .service-section {
-  width: 100%;
+  width: 100dvw;
   padding: 80px 8%;
   display: flex;
   align-items: center;
@@ -821,6 +822,7 @@ body{
 .faq-section {
     background: #f4f8fb;
     padding: 80px 20px;
+    width: 100dvw;
 }
 
 .faq-title {
@@ -893,6 +895,7 @@ body{
     color: #f1f1f1;
     padding: 70px 8% 30px;
     position: relative;
+    width: 100dvw;
 }
 
 .footer-wrapper {
@@ -1139,6 +1142,7 @@ body{
   padding: 100px 20px;
   background-color: #f9f9f9;
   text-align: center;
+  width: 100dvw;
 }
 
 .section-title {
