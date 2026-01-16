@@ -107,11 +107,11 @@ document.querySelectorAll('.info-card.clickable').forEach(card => {
     const action = card.dataset.action;
 
     if (action === 'call') {
-      window.location.href = 'tel:+2348012345678';
+      window.location.href = 'tel:+2348146930404';
     }
 
     if (action === 'whatsapp') {
-      window.open('https://wa.me/2348012345678', '_blank');
+      window.open('https://wa.me/2348146930404', '_blank');
     }
   });
 });
@@ -172,8 +172,3 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 items.forEach(item => observer.observe(nose));
-
-
-
-
-
