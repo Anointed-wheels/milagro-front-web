@@ -142,3 +142,22 @@ faqItems.forEach(item => {
         item.classList.toggle('active');
     });
 });
+
+const backToTop = document.getElementById("backToTop");
+
+// Show button on scroll
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+});
+
+// Scroll to top smoothly
+backToTop.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
