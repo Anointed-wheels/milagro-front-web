@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+html,body{
+  overflow-x: hidden;
+}
 body{
     overflow-x: hidden;
     background-color: #f7f2f1;
