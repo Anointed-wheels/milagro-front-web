@@ -10,6 +10,16 @@
 </head>
 <body>
     <nav class="navigation">
+        <div class="nav-theme-toggle" id="themeSwitch">
+            <span class="icon sun">
+                <i class="fa-solid fa-sun"></i>
+            </span>
+            <span class="icon moon">
+                <i class="fa-solid fa-moon"></i>
+            </span>
+            <span class="toggle-ball"></span>
+        </div>
+
         <button class="hamburger" id="navToggle" aria-label="Toggle menu">
             <span></span>
             <span></span>
@@ -126,8 +136,8 @@
                 <img src="assets/media/images/gen.png" alt="Rug Cleaning Service">
             </div>
 
-            <div class="services-text">
-            <h3>GENERAL CLEANING</h3>
+            <div class="services-text" id="gbam">
+                <h3>GENERAL CLEANING</h3>
                 <p>
                     We offer a wide range of professional cleaning methods, all carefully 
                     selected to suit different surfaces, spaces, and cleaning needs. Each method is applied with
@@ -140,7 +150,7 @@
                     and respect, delivering thorough cleaning as if it were our own property.
                 </p>
 
-                <button class="services-btn">Get a Free Estimate</button>
+                <button class="services-btn" id="kilo">Get a Free Estimate</button>
             </div>
         </div>
     </section>
@@ -610,5 +620,6 @@
 
     <script src="assets/js/index.js"></script>
     <script src="assets/js/caro.js"></script>
+    <script src="assets/js/theme.js"></script>
 </body>
 </html>
