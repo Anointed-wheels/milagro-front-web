@@ -114,3 +114,20 @@ function openMenu() {
 navToggle.addEventListener('click', () => {
     ulHolder.classList.contains('open') ? closeMenu() : openMenu();
 });
+const sectorCards = document.querySelectorAll(".sector-card");
+
+const revealOnScroll = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+sectorCards.forEach((card) => {
+  revealOnScroll.observe(card);
+});
