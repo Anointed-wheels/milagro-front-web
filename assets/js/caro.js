@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currRotation -= 0.2;
     caro.style.transform = `rotateY(${currRotation}deg)`;
     updateFrontCard();
-  }, 30);
+  }, 10);
 
   // Touch support
   let startX = 0;

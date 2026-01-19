@@ -133,33 +133,5 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 });
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-
-    question.addEventListener('click', () => {
-        item.classList.toggle('active');
-    });
-});
-
-const backToTop = document.getElementById("backToTop");
-
-// Show button on scroll
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-        backToTop.style.display = "block";
-    } else {
-        backToTop.style.display = "none";
-    }
-});
-
-// Scroll to top smoothly
-backToTop.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
 
 

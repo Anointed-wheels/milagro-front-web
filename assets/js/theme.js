@@ -139,3 +139,43 @@ window.addEventListener("scroll", () => {
     if (scrollY > sectionTop + sectionHeight) track.style.transform = `translateX(-${maxScroll}px)`;
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+
+    question.addEventListener('click', () => {
+      item.classList.toggle('active');
+
+      // Optional: close others when one opens
+      faqItems.forEach(other => {
+        if (other !== item) {
+          other.classList.remove('active');
+        }
+      });
+    });
+  });
+});
+
+const backToTop = document.getElementById("backToTop");
+
+// Show button on scroll
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+        backToTop.style.display = "block";
+    } else {
+        backToTop.style.display = "none";
+    }
+});
+
+// Scroll to top smoothly
+backToTop.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+

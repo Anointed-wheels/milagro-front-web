@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Tagesschrift-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "play";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -919,7 +929,7 @@ body{
     color: #57b9ea;
 }
 
-.icon {
+.faq-question .icon {
     font-size: 2rem;
     transition: transform 0.3s ease;
 }
@@ -1902,4 +1912,10 @@ body[data-theme="dark"] .estimate-card {
     min-width: 100%;
     max-width: 100%;
   }
+}
+body p{
+  font-family: poppins;
+}
+.service-estimates li{
+  font-family: play;
 }
