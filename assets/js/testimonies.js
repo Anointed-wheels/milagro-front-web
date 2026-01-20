@@ -1,115 +1,88 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.getElementById('testimonialCarousel');
+  const btnLeft = document.querySelector('.carousel-btn.left');
+  const btnRight = document.querySelector('.carousel-btn.right');
 
-  const sourceCards = Array.from(document.querySelectorAll('#testimonialSource .testimonial-card'));
-  const stackEl = document.getElementById('testimonialStack');
-  const incomingEl = document.getElementById('incomingCard');
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
+  if (!carousel || !btnLeft || !btnRight) return;
 
-  let currentIndex = 0;
-  let stack = [];
-  const STACK_SIZE = 5;
-
-  function cloneCard(card) {
-    const div = document.createElement('div');
-    div.className = 'stack-card';
-    div.innerHTML = card.innerHTML;
-    return div;
+  // Wait until images load to get correct width
+  function getScrollAmount() {
+    const card = carousel.querySelector('.testimonial-card');
+    if (!card) return 0;
+    const style = window.getComputedStyle(card);
+    const gap = parseInt(style.marginRight) || 20; // fallback
+    return card.offsetWidth + gap;
   }
 
-  function renderStack() {
-    stack.forEach((card, i) => {
-      card.style.transform = `translate(${i * 8}px, ${i * 8}px) scale(${1 - i * 0.04})`;
-      card.style.opacity = i === 0 ? 1 : 0.85;
-      card.style.zIndex = 10 - i;
-    });
-  }
+  // BUTTON SCROLL
+  btnLeft.addEventListener('click', () => {
+    const scrollAmount = getScrollAmount();
+    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
 
-  function initStack() {
-    for (let i = 0; i < STACK_SIZE; i++) {
-      const card = cloneCard(sourceCards[(currentIndex + i) % sourceCards.length]);
-      stack.push(card);
-      stackEl.appendChild(card);
+  btnRight.addEventListener('click', () => {
+    const scrollAmount = getScrollAmount();
+    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  // DRAG TO SCROLL
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  carousel.addEventListener('mousedown', (e) => {
+    if (e.target.tagName === 'BUTTON') return; // don't drag when clicking buttons
+    isDown = true;
+    carousel.classList.add('dragging');
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+  carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.classList.remove('dragging');
+  });
+  carousel.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.classList.remove('dragging');
+  });
+  carousel.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  // TOUCH SCROLL
+  carousel.addEventListener('touchstart', (e) => {
+    if (e.target.tagName === 'BUTTON') return; // ignore buttons
+    isDown = true;
+    startX = e.touches[0].pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+  carousel.addEventListener('touchend', () => {
+    isDown = false;
+  });
+  carousel.addEventListener('touchmove', (e) => {
+    if(!isDown) return;
+    const x = e.touches[0].pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+});
+// ===== FAQ TOGGLE =====
+document.querySelectorAll(".faq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector(".icon");
+
+    // Toggle visibility
+    if (answer.style.maxHeight) {
+      answer.style.maxHeight = null;
+      icon.textContent = "+";
+    } else {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+      icon.textContent = "x";
     }
-    renderStack();
-    currentIndex = STACK_SIZE % sourceCards.length;
-  }
-
-  function showNext() {
-    const cardData = sourceCards[currentIndex];
-    const incoming = cloneCard(cardData);
-
-    incomingEl.innerHTML = '';
-    incomingEl.appendChild(incoming);
-
-    incomingEl.classList.remove('enter', 'to-stack');
-    void incomingEl.offsetWidth; // force reflow
-
-    incomingEl.classList.add('enter'); // slide to center
-
-    setTimeout(() => {
-        incomingEl.classList.remove('enter');
-        incomingEl.classList.add('to-stack'); // slide into stack
-
-        setTimeout(() => {
-            incomingEl.classList.remove('to-stack');
-
-            stack.unshift(incoming);
-            stackEl.appendChild(incoming);
-
-            if (stack.length > STACK_SIZE) {
-                const last = stack.pop();
-                last.remove();
-            }
-
-            renderStack();
-        }, 800);
-
-    }, 8000); // pause at center
-
-    currentIndex = (currentIndex + 1) % sourceCards.length;
-    }
-
-
-  function showPrev() {
-  currentIndex = (currentIndex - 1 + sourceCards.length) % sourceCards.length;
-  const cardData = sourceCards[currentIndex];
-  const incoming = cloneCard(cardData);
-
-  incomingEl.innerHTML = '';
-  incomingEl.appendChild(incoming);
-
-  incomingEl.classList.remove('enter', 'to-stack');
-  void incomingEl.offsetWidth;
-
-  incomingEl.classList.add('enter');
-
-  setTimeout(() => {
-    incomingEl.classList.remove('enter');
-    incomingEl.classList.add('to-stack');
-
-    setTimeout(() => {
-      incomingEl.classList.remove('to-stack');
-
-      stack.unshift(incoming);
-      stackEl.appendChild(incoming);
-
-      if (stack.length > STACK_SIZE) {
-        const last = stack.pop();
-        last.remove();
-      }
-
-      renderStack();
-    }, 800);
-
-  }, 1200);
-}
-
-
-  nextBtn.addEventListener('click', showNext);
-  prevBtn.addEventListener('click', showPrev);
-
-  setInterval(showNext, 6000);
-
-  initStack();
+  });
 });
