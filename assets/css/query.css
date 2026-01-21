@@ -183,3 +183,62 @@
         transform: translateY(0);
     }
 }
+.services-page {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.services-page h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.service-detail {
+    margin-bottom: 50px;
+}
+
+.services-cta {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.services-cta button {
+    padding: 12px 30px;
+    background-color: #3f51b5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.ul-holder div p a {
+    text-decoration: none; /* remove underline */
+    color: inherit;         /* inherit the nav text color */
+    display: inline-block;  /* ensures styling works */
+    width: 100%;            /* make clickable area same as the div */
+}
+.ul-holder div p a:hover {
+    cursor: pointer;
+}
+.ul-holder a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.ul-holder div {
+  position: relative;
+}
+
+.indicator {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 4px;
+  border-radius: 4px;
+  background: transparent;
+  transition: background 0.3s ease;
+}

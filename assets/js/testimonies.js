@@ -86,3 +86,14 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const currentPath = window.location.pathname.split("/").pop(); // gets current file name
+    const navItems = document.querySelectorAll('.ul-holder div p a');
+
+    navItems.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (linkPath === currentPath || (linkPath === 'index.html' && currentPath === '')) {
+            link.parentElement.parentElement.classList.add('active'); // keep your indicator styling
+        }
+    });
+});

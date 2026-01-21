@@ -1,44 +1,81 @@
+// const menuItems = document.querySelectorAll('.ul-holder div');
+
+// // Create indicators inside each menu item
+// menuItems.forEach(item => {
+//     const indicator = document.createElement('div');
+//     indicator.classList.add('indicator');
+//     item.appendChild(indicator);
+// });
+
+// // Function to activate and apply color
+// function activateItem(el) {
+//     menuItems.forEach(item => {
+//         item.classList.remove('active');
+//         const ind = item.querySelector('.indicator');
+//         if (ind) ind.style.backgroundColor = 'transparent';
+//     });
+
+//     el.classList.add('active');
+//     const color = el.getAttribute('data-color');
+//     const text = el.querySelector('p');
+//     const indicator = el.querySelector('.indicator');
+
+//     if (text) text.style.color = color;
+//     if (indicator) indicator.style.backgroundColor = color;
+    
+//     // Reset others' text color
+//     menuItems.forEach(item => {
+//         if (item !== el) {
+//             const p = item.querySelector('p');
+//             if (p) p.style.color = '#999'; // Default
+//         }
+//     });
+// }
+
+// Initialize
 const menuItems = document.querySelectorAll('.ul-holder div');
 
-// Create indicators inside each menu item
+// create indicators once
 menuItems.forEach(item => {
+  if (!item.querySelector('.indicator')) {
     const indicator = document.createElement('div');
     indicator.classList.add('indicator');
     item.appendChild(indicator);
+  }
 });
 
-// Function to activate and apply color
 function activateItem(el) {
-    menuItems.forEach(item => {
-        item.classList.remove('active');
-        const ind = item.querySelector('.indicator');
-        if (ind) ind.style.backgroundColor = 'transparent';
-    });
+  menuItems.forEach(item => {
+    item.classList.remove('active');
 
-    el.classList.add('active');
-    const color = el.getAttribute('data-color');
-    const text = el.querySelector('p');
-    const indicator = el.querySelector('.indicator');
+    const ind = item.querySelector('.indicator');
+    const p = item.querySelector('p');
 
-    if (text) text.style.color = color;
-    if (indicator) indicator.style.backgroundColor = color;
-    
-    // Reset others' text color
-    menuItems.forEach(item => {
-        if (item !== el) {
-            const p = item.querySelector('p');
-            if (p) p.style.color = '#999'; // Default
-        }
-    });
+    if (ind) ind.style.backgroundColor = 'transparent';
+    if (p) p.style.color = '#999';
+  });
+
+  el.classList.add('active');
+
+  const color = el.dataset.color;
+  const indicator = el.querySelector('.indicator');
+  const text = el.querySelector('p');
+
+  if (indicator) indicator.style.backgroundColor = color;
+  if (text) text.style.color = color;
 }
 
-// Initialize
-activateItem(menuItems[0]);
+// URL-based activation (THIS IS THE MAGIC)
+const currentPage =
+  window.location.pathname.split('/').pop() || 'index.html';
 
-// Event listeners
 menuItems.forEach(item => {
-    item.addEventListener('click', () => activateItem(item));
+  if (item.dataset.page === currentPage) {
+    activateItem(item);
+  }
 });
+
+
 
 
 const carousel = document.querySelector('.carousel');
