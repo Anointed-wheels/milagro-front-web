@@ -91,12 +91,12 @@ input, select, textarea {
   border: 1px solid #ccc;
 }
 
-.nav {
+/* .nav {
   display: flex;
   justify-content: space-between;
-}
+} */
 
-button {
+.ako {
   padding: 12px 20px;
   border-radius: 25px;
   border: none;
