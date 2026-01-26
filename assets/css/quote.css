@@ -1,0 +1,110 @@
+body {
+  font-family: Poppins, sans-serif;
+}
+
+.open-quote {
+  padding: 14px 30px;
+  border-radius: 30px;
+  background: #fbbf24;
+  border: none;
+  cursor: pointer;
+}
+
+.quote-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-box {
+  background: #fff;
+  width: 95%;
+  max-width: 520px;
+  padding: 25px;
+  border-radius: 20px;
+  animation: slideUp .4s ease;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.steps {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.steps span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.steps .active {
+  background: #fbbf24;
+}
+
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+}
+
+.service-card {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.service-card:hover,
+.service-card.selected {
+  background: #fef3c7;
+  border-color: #fbbf24;
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  background: #fbbf24;
+  cursor: pointer;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

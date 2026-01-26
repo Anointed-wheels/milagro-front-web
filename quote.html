@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/query.css">
+    <link rel="stylesheet" href="assets/css/quote.css">
+</head>
+<body>
+    <nav class="navigation">
+        <div class="nav-theme-toggle" id="themeSwitch">
+            <span class="icon sun">
+                <i class="fa-solid fa-sun"></i>
+            </span>
+            <span class="icon moon">
+                <i class="fa-solid fa-moon"></i>
+            </span>
+            <span class="toggle-ball"></span>
+        </div>
+
+        <button class="hamburger" id="navToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="img-div">
+            <img src="assets/media/images/mili.png" alt="Milagro logo">
+        </div>
+        <div class="ul-holder">
+  <div data-color="#e91e63" data-page="index.html">
+    <p><a href="index.html">Home</a></p>
+  </div>
+
+  <div data-color="#3f51b5" data-page="services.html">
+    <p><a href="services.html">Services</a></p>
+  </div>
+
+  <div data-color="#009688" data-page="about.html">
+    <p><a href="about.html">About us</a></p>
+  </div>
+
+  <div data-color="#ff9800" data-page="contact.html">
+    <p><a href="contact.html">Contact</a></p>
+  </div>
+
+  <div data-color="#9c27b0" data-page="news.html">
+    <p><a href="news.html">News</a></p>
+  </div>
+</div>
+
+    </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
+    <section class="hero-section">
+        <div class="circle">
+
+        </div>
+        <div class="video-container">
+            <video muted autoplay loop >
+                <source src="assets/media/videos/mil-vid.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="written-words">
+            <div class="head-written-words">
+                <h1>
+                    Affordable And <br>Reliable Cleaning & <br>Environmental Services
+                </h1>
+            </div>
+            <div class="sub-written-words">
+                <p>
+                    We provide affordable and reliable cleaning, fumigation, and garden services directly to your doorstep, ensuring clean and safe environments.
+                </p>
+            </div>
+            <div class="btn-holder">
+                <p>Get in touch with us now</p>
+            </div>
+        </div>
+        <!-- <div class="overlay"></div> -->
+    </section>
+    <button class="open-quote">Request a Quote</button>
+
+<div class="quote-overlay" id="quoteOverlay">
+  <div class="quote-box">
+
+    <span class="close">&times;</span>
+
+    <!-- STEP INDICATOR -->
+    <div class="steps">
+      <span class="active">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step active">
+      <h2>Select a Service</h2>
+
+      <div class="service-grid">
+
+        <div class="service-card" data-service="Cleaning Services">
+          <img src="https://placehold.co/80x80?text=Clean" alt="">
+          <h4>Cleaning Services</h4>
+        </div>
+
+        <div class="service-card" data-service="Pest Control & Fumigation">
+          <img src="https://placehold.co/80x80?text=Pest" alt="">
+          <h4>Pest Control & Fumigation</h4>
+        </div>
+
+        <div class="service-card" data-service="Garden Services">
+          <img src="https://placehold.co/80x80?text=Garden" alt="">
+          <h4>Garden Services</h4>
+        </div>
+
+        <div class="service-card" data-service="Property Management">
+          <img src="https://placehold.co/80x80?text=Property" alt="">
+          <h4>Property Management</h4>
+        </div>
+
+      </div>
+
+      <button class="next">Next</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+      <h2>Service Details</h2>
+
+      <select id="subService">
+        <option value="">Select Specific Service</option>
+      </select>
+
+      <textarea id="description" placeholder="Describe what you need..."></textarea>
+
+      <input type="file" id="video" accept="video/*">
+      <small>Video will be sent manually on WhatsApp</small>
+
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="next">Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+      <h2>Your Details</h2>
+
+      <input id="fname" placeholder="First Name">
+      <input id="lname" placeholder="Last Name">
+      <input id="phone" placeholder="WhatsApp Number">
+      <input id="email" placeholder="Email (optional)">
+
+      <select id="method">
+        <option value="whatsapp">WhatsApp</option>
+        <option value="email">Email</option>
+      </select>
+
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="next">Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+      <h2>Confirm & Send</h2>
+      <p>Your quote request will be sent now.</p>
+
+      <button id="sendQuote">Send Quote</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="assets/js/quote.js"></script>
+</body>

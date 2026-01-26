@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/query.css">
     <link rel="stylesheet" href="assets/css/services.css">
+    <link rel="stylesheet" href="assets/css/quote.css">
 </head>
 <body>
 
@@ -79,7 +80,7 @@
 
         <div class="service-actions">
           <button class="read-more-toggle">Read more</button>
-          <button class="quote-btn">Request a quote</button>
+          <button class="quote-btn open-quote">Request a quote</button>
         </div>
       </div>
     </section>
@@ -105,7 +106,7 @@
 
         <div class="service-actions">
           <button class="read-more-toggle">Read more</button>
-          <button class="quote-btn">Request a quote</button>
+          <button class="quote-btn open-quote">Request a quote</button>
         </div>
       </div>
     </section>
@@ -131,7 +132,7 @@
 
         <div class="service-actions">
           <button class="read-more-toggle">Read more</button>
-          <button class="quote-btn">Request a quote</button>
+          <button class="quote-btn open-quote">Request a quote</button>
         </div>
       </div>
     </section>
@@ -257,6 +258,101 @@
     </div>
 </footer>
 
+<div class="quote-overlay" id="quoteOverlay">
+  <div class="quote-box">
+
+    <span class="close">&times;</span>
+
+    <!-- STEP INDICATOR -->
+    <div class="steps">
+      <span class="active">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step active">
+      <h2>Select a Service</h2>
+
+      <div class="service-grid">
+
+        <div class="service-card" data-service="Cleaning Services">
+          <img src="https://placehold.co/80x80?text=Clean" alt="">
+          <h4>Cleaning Services</h4>
+        </div>
+
+        <div class="service-card" data-service="Pest Control & Fumigation">
+          <img src="https://placehold.co/80x80?text=Pest" alt="">
+          <h4>Pest Control & Fumigation</h4>
+        </div>
+
+        <div class="service-card" data-service="Garden Services">
+          <img src="https://placehold.co/80x80?text=Garden" alt="">
+          <h4>Garden Services</h4>
+        </div>
+
+        <div class="service-card" data-service="Property Management">
+          <img src="https://placehold.co/80x80?text=Property" alt="">
+          <h4>Property Management</h4>
+        </div>
+
+      </div>
+
+      <button class="next">Next</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+      <h2>Service Details</h2>
+
+      <select id="subService">
+        <option value="">Select Specific Service</option>
+      </select>
+
+      <textarea id="description" placeholder="Describe what you need..."></textarea>
+
+      <input type="file" id="video" accept="video/*">
+      <small>Video will be sent manually on WhatsApp</small>
+
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="next">Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+      <h2>Your Details</h2>
+
+      <input id="fname" placeholder="First Name">
+      <input id="lname" placeholder="Last Name">
+      <input id="phone" placeholder="WhatsApp Number">
+      <input id="email" placeholder="Email (optional)">
+
+      <select id="method">
+        <option value="whatsapp">WhatsApp</option>
+        <option value="email">Email</option>
+      </select>
+
+      <div class="nav">
+        <button class="prev">Back</button>
+        <button class="next">Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+      <h2>Confirm & Send</h2>
+      <p>Your quote request will be sent now.</p>
+
+      <button id="sendQuote">Send Quote</button>
+    </div>
+
+  </div>
+</div>
+
+
 <!-- BACK TO TOP -->
 <button id="backToTop">
     <i class="fa-solid fa-arrow-up"></i>
@@ -273,5 +369,6 @@
 <script src="assets/js/theme.js"></script>
 <script src="assets/js/caro.js"></script>
 <script src="assets/js/services.js"></script>
+<script src="assets/js/quote.js"></script>
 </body>
 </html>
