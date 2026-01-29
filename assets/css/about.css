@@ -1,0 +1,155 @@
+/* ================= ABOUT HERO ================= */
+.about-hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, #0b1341, #0557bc),
+    url("https://placehold.co/1600x900");
+  background-size: cover;
+  animation: zoomBg 20s infinite alternate;
+}
+
+@keyframes zoomBg {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: clamp(36px, 6vw, 70px);
+}
+
+#typed-text {
+  color: #fbce60;
+  border-right: 3px solid #fbce60;
+  padding-right: 5px;
+}
+
+/* ================= STORY ================= */
+.about-story {
+  display: flex;
+  padding: 120px 8%;
+  gap: 60px;
+}
+
+.about-story img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Slide animations */
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: 1s ease;
+}
+
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: 1s ease;
+}
+
+.animate-slide-left.show,
+.animate-slide-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ================= VALUES ================= */
+.about-values {
+  padding: 100px 8%;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.value-card {
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Glitch effect */
+.glitch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fbce60;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(0 0 90% 0); }
+  50% { clip-path: inset(40% 0 40% 0); }
+  100% { clip-path: inset(90% 0 0 0); }
+}
+
+/* ================= TIMELINE ================= */
+.about-timeline {
+  padding: 120px 8%;
+  text-align: center;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.timeline-item {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 0.8s ease;
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ================= CTA ================= */
+.about-cta {
+  padding: 120px 8%;
+  background: #0b1341;
+  color: white;
+  text-align: center;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 40px;
+  background: #fbce60;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .about-story {
+    flex-direction: column;
+  }
+}
