@@ -12,3 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const animatedItems = document.querySelectorAll(".hero-animate");
+
+  animatedItems.forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add("show");
+    }, index * 200);
+  });
+});
