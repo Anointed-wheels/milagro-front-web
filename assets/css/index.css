@@ -1793,6 +1793,11 @@ body[data-theme="dark"] .service-estimates {
   background: #0f1624;
 }
 
+
+body[data-theme="dark"] .quote-box {
+  background-color: #0b1341;
+}
+
 body[data-theme="dark"] .estimate-card {
   background: linear-gradient(180deg, #1c2433, #141b29);
   color: #e6e6e6;
