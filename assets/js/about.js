@@ -49,3 +49,15 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(
   ".animate-slide-left, .animate-slide-right, .timeline-item"
 ).forEach(el => observer.observe(el));
+
+
+
+const heroImg = document.querySelector(".hero-right img");
+
+if(heroImg){
+  let pos = 0;
+  setInterval(()=>{
+    pos = pos === 0 ? -10 : 0;
+    heroImg.style.transform = `translateY(${pos}px)`;
+  },3000);
+}

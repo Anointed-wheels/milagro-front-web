@@ -1,22 +1,24 @@
 /* ================= ABOUT HERO ================= */
-.about-hero {
-  height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+
 
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(120deg, #0b1341, #0557bc),
-    url("https://placehold.co/1600x900");
+
+  background-image: url("https://placehold.co/1600x900?text=Milagro+Team+At+Work");
   background-size: cover;
+  background-position: center;
+
   animation: zoomBg 20s infinite alternate;
 }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1000000000;
+
+  background: linear-gradient(120deg, rgba(11,19,65,.85), rgba(5,87,188,.75));
+}
+
 
 @keyframes zoomBg {
   from { transform: scale(1); }
@@ -39,6 +41,8 @@
   border-right: 3px solid #fbce60;
   padding-right: 5px;
 }
+
+/*  */
 
 /* ================= STORY ================= */
 .about-story {
@@ -152,4 +156,148 @@
   .about-story {
     flex-direction: column;
   }
+}
+.hero-overlay {
+  position:absolute;
+  inset:0;
+  /* background:rgba(0,0,0,.55); */
+}
+
+.hero-tag {
+  letter-spacing:4px;
+  font-size:12px;
+  opacity:.8;
+}
+
+.hero-stats {
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  margin-top:40px;
+}
+
+.hero-stats h3 {
+  font-size:32px;
+  color:#fbce60;
+}
+
+.story-points {
+  margin-top:20px;
+}
+
+.story-points li {
+  margin-bottom:10px;
+}
+
+.value-card img {
+  width:100%;
+  border-radius:6px;
+  margin-bottom:15px;
+}
+
+.value-card p {
+  opacity:.8;
+}
+
+.about-timeline .timeline-item {
+  background:#f5f5f5;
+  padding:30px;
+  border-radius:8px;
+}
+
+
+.about-hero {
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  padding:0 8%;
+  align-items:center;
+  gap:60px;
+  background:linear-gradient(120deg,#0b1341,#0557bc);
+  color:white;
+}
+
+.hero-left h2 {
+  font-size:clamp(36px,5vw,50px);
+  margin:15px 0;
+}
+
+.hero-tag {
+  letter-spacing:4px;
+  font-size:12px;
+  opacity:.7;
+}
+
+.hero-left p {
+  max-width:500px;
+  opacity:.85;
+  line-height:1.6;
+}
+
+.hero-actions {
+  display:flex;
+  gap:20px;
+  margin:30px 0;
+}
+
+.hero-btn {
+  padding:14px 32px;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:30px;
+}
+
+.hero-btn.primary {
+  background:#fbce60;
+  color:black;
+}
+
+.hero-btn.outline {
+  border:2px solid white;
+  color:white;
+}
+
+.hero-stats {
+  display:flex;
+  gap:40px;
+  margin-top:30px;
+}
+
+.hero-stats h3 {
+  color:#fbce60;
+  font-size:28px;
+}
+
+.hero-right img {
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 40px 80px rgba(0,0,0,.4);
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.about-hero {
+  grid-template-columns:1fr;
+  padding-top:120px;
+  text-align:center;
+}
+
+.hero-left p {
+  margin:auto;
+}
+
+.hero-actions {
+  justify-content:center;
+}
+
+.hero-stats {
+  justify-content:center;
+}
+
+.hero-right {
+  margin-top:50px;
+}
+
 }
