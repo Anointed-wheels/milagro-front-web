@@ -61,3 +61,15 @@ if(heroImg){
     heroImg.style.transform = `translateY(${pos}px)`;
   },3000);
 }
+/* JOURNEY REVEAL */
+
+const journeyObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:.3});
+
+document.querySelectorAll(".journey-item")
+.forEach(el => journeyObserver.observe(el));
