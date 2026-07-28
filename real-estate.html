@@ -11,151 +11,294 @@
 
   <!-- Sticky Premium Navigation Bar -->
   <header class="navbar-sticky">
-    <div class="nav-container">
+  <div class="nav-container">
+    
+    <!-- Brand Logo (Left) -->
+    <a href="index.html" class="nav-brand">
+      <img src="assets/media/images/mili.png" alt="MILAGRO Logo" class="nav-logo">
+    </a>
+
+    <!-- NEW: Hamburger Button (Only visible on mobile) -->
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Open Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Center Navigation Links (Becomes Mobile Sidebar) -->
+    <nav class="nav-menu" id="navMenu">
       
-      <!-- Brand Logo (Left) -->
-      <a href="index.html" class="nav-brand">
-        <img src="assets/media/images/mili.png" alt="MILAGRO Logo" class="nav-logo">
-      </a>
+      <!-- NEW: Mobile Close Button (Only visible inside mobile sidebar) -->
+      <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">&times;</button>
 
-      <!-- Center Navigation Links -->
-      <nav class="nav-menu">
+      <!-- Search Trigger Button -->
+      <button class="nav-item search-trigger-btn" id="searchToggle">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search</span>
+      </button>
+
+      <!-- Properties Mega Menu Item -->
+      <div class="nav-item dropdown-item">
+        <button class="dropdown-trigger">Properties <span class="arrow">▾</span></button>
         
-        <!-- Search Trigger Button -->
-        <button class="nav-item search-trigger-btn" id="searchToggle">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <span>Search</span>
-        </button>
-
-        <!-- Properties Mega Menu Item -->
-        <div class="nav-item dropdown-item">
-          <button class="dropdown-trigger">Properties <span class="arrow">▾</span></button>
-          
-          <div class="mega-menu" id="propertiesMenu">
-            <div class="mega-header">
-              <span class="mega-title">Property Listings</span>
-              <button class="close-dropdown-btn">&times;</button>
+        <div class="mega-menu" id="propertiesMenu">
+          <div class="mega-header">
+            <span class="mega-title">Property Listings</span>
+            <button class="close-dropdown-btn">&times;</button>
+          </div>
+          <div class="mega-grid three-columns">
+            <!-- Column 1: Local -->
+            <div class="mega-col">
+              <h4>Local</h4>
+              <ul>
+                <li><a href="#" data-filter="near-me">Properties Near Me</a></li>
+              </ul>
             </div>
-            <div class="mega-grid three-columns">
-              <!-- Column 1: Local -->
-              <div class="mega-col">
-                <h4>Local</h4>
-                <ul>
-                  <li><a href="#" data-filter="near-me">Properties Near Me</a></li>
-                </ul>
-              </div>
-              <!-- Column 2: Worldwide -->
-              <div class="mega-col">
-                <h4>Worldwide</h4>
-                <ul>
-                  <li><a href="#">View Properties Globally</a></li>
-                  <li><a href="#">New Development Projects</a></li>
-                  <li><a href="#">Properties Coming Soon</a></li>
-                  <li><a href="#">Properties for Auction</a></li>
-                  <li><a href="#">Properties by Lifestyle</a></li>
-                  <li><a href="#">Properties by Destination</a></li>
-                  <li><a href="#">Properties with Videos</a></li>
-                  <li><a href="#">Properties with Virtual Reality</a></li>
-                </ul>
-              </div>
-              <!-- Column 3: Cities & Developments -->
-              <div class="mega-col">
-                <h4>Popular Cities</h4>
-                <ul>
-                  <li><a href="#">New York</a></li>
-                  <li><a href="#">Los Angeles</a></li>
-                  <li><a href="#">The Hamptons</a></li>
-                  <li><a href="#">London</a></li>
-                  <li><a href="#">Dubai</a></li>
-                  <li><a href="#">Paris</a></li>
-                </ul>
-                <h4 class="mt-section">New Developments</h4>
-                <ul>
-                  <li><a href="#">Discover Developments</a></li>
-                  <li><a href="#">Development Overview</a></li>
-                </ul>
-              </div>
+            <!-- Column 2: Worldwide -->
+            <div class="mega-col">
+              <h4>Worldwide</h4>
+              <ul>
+                <li><a href="#">View Properties Globally</a></li>
+                <li><a href="#">New Development Projects</a></li>
+                <li><a href="#">Properties Coming Soon</a></li>
+                <li><a href="#">Properties for Auction</a></li>
+                <li><a href="#">Properties by Lifestyle</a></li>
+                <li><a href="#">Properties by Destination</a></li>
+                <li><a href="#">Properties with Videos</a></li>
+                <li><a href="#">Properties with Virtual Reality</a></li>
+              </ul>
+            </div>
+            <!-- Column 3: Cities & Developments -->
+            <div class="mega-col">
+              <h4>Popular Cities</h4>
+              <ul>
+                <li><a href="#">New York</a></li>
+                <li><a href="#">Los Angeles</a></li>
+                <li><a href="#">The Hamptons</a></li>
+                <li><a href="#">London</a></li>
+                <li><a href="#">Dubai</a></li>
+                <li><a href="#">Paris</a></li>
+              </ul>
+              <h4 class="mt-section">New Developments</h4>
+              <ul>
+                <li><a href="#">Discover Developments</a></li>
+                <li><a href="#">Development Overview</a></li>
+              </ul>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Agents Mega Menu Item -->
-        <div class="nav-item dropdown-item">
-          <button class="dropdown-trigger">Agents <span class="arrow">▾</span></button>
-          
-          <div class="mega-menu" id="agentsMenu">
-            <div class="mega-header">
-              <span class="mega-title">Our Advisors & Offices</span>
-              <button class="close-dropdown-btn">&times;</button>
+      <!-- Agents Mega Menu Item -->
+      <div class="nav-item dropdown-item">
+        <button class="dropdown-trigger">Agents <span class="arrow">▾</span></button>
+        
+        <div class="mega-menu" id="agentsMenu">
+          <div class="mega-header">
+            <span class="mega-title">Our Advisors & Offices</span>
+            <button class="close-dropdown-btn">&times;</button>
+          </div>
+          <div class="mega-grid two-columns">
+            <div class="mega-col">
+              <h4>Local Experts</h4>
+              <ul>
+                <li><a href="#">Your Local Agents</a></li>
+                <li><a href="#">Your Local Offices</a></li>
+              </ul>
             </div>
-            <div class="mega-grid two-columns">
-              <div class="mega-col">
-                <h4>Local Experts</h4>
-                <ul>
-                  <li><a href="#">Your Local Agents</a></li>
-                  <li><a href="#">Your Local Offices</a></li>
-                </ul>
-              </div>
-              <div class="mega-col">
-                <h4>Worldwide Network</h4>
-                <ul>
-                  <li><a href="#">Search Agents Globally</a></li>
-                  <li><a href="#">Search Offices Globally</a></li>
-                </ul>
-              </div>
+            <div class="mega-col">
+              <h4>Worldwide Network</h4>
+              <ul>
+                <li><a href="#">Search Agents Globally</a></li>
+                <li><a href="#">Search Offices Globally</a></li>
+              </ul>
             </div>
           </div>
         </div>
-
-        <!-- About Us -->
-        <a href="#about" class="nav-item nav-link">About Us</a>
-
-      </nav>
-
-      <!-- Right Utility Actions -->
-      <div class="nav-actions">
-        <!-- Dark/Light Theme Switcher -->
-        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-          <span class="sun-icon">☀️</span>
-          <span class="moon-icon">🌙</span>
-        </button>
-        <a href="#contact" class="nav-cta-btn">Contact Us</a>
       </div>
 
+      <!-- About Us -->
+      <a href="#about" class="nav-item nav-link">About Us</a>
+
+    </nav>
+
+    <!-- Right Utility Actions -->
+    <div class="nav-actions">
+      <!-- Dark/Light Theme Switcher -->
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+      <a href="#contact" class="nav-cta-btn">Contact Us</a>
     </div>
 
-    <!-- Search Modal / Dropdown Layer -->
-    <div class="search-overlay" id="searchOverlay">
-      <div class="search-box-card">
-        <div class="search-box-header">
-          <h3>Search Properties & Management</h3>
-          <button class="close-search-btn" id="closeSearchBtn">&times;</button>
-        </div>
-        
-        <!-- Search Controls -->
-        <div class="search-input-wrapper">
-          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="text" id="searchInput" placeholder="Type city, neighborhood, zip code or property type..." autocomplete="off">
-        </div>
+  </div>
 
-        <!-- Filter Tags -->
-        <div class="search-filter-pills">
-          <span class="filter-label">Filter:</span>
-          <button class="filter-btn active" data-type="all">All</button>
-          <button class="filter-btn" data-type="buy">Buy</button>
-          <button class="filter-btn" data-type="rent">Rent</button>
-          <button class="filter-btn" data-type="developments">Developments</button>
-          <button class="filter-btn" data-type="sell">Sell</button>
-          <button class="filter-btn" data-type="more">More</button>
-        </div>
+  <!-- Search Modal / Dropdown Layer -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box-card">
+      <div class="search-box-header">
+        <h3>Search Properties & Management</h3>
+        <button class="close-search-btn" id="closeSearchBtn">&times;</button>
+      </div>
+      
+      <!-- Search Controls -->
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="Type city, neighborhood, zip code or property type..." autocomplete="off">
+      </div>
 
-        <!-- JS Live Results Drawer -->
-        <div class="search-results-container" id="searchResults">
-          <p class="search-hint">Type above or click a filter category to see matching property listings.</p>
-        </div>
+      <!-- Filter Tags -->
+      <div class="search-filter-pills">
+        <span class="filter-label">Filter:</span>
+        <button class="filter-btn active" data-type="all">All</button>
+        <button class="filter-btn" data-type="buy">Buy</button>
+        <button class="filter-btn" data-type="rent">Rent</button>
+        <button class="filter-btn" data-type="developments">Developments</button>
+        <button class="filter-btn" data-type="sell">Sell</button>
+        <button class="filter-btn" data-type="more">More</button>
+      </div>
+
+      <!-- JS Live Results Drawer -->
+      <div class="search-results-container" id="searchResults">
+        <p class="search-hint">Type above or click a filter category to see matching property listings.</p>
       </div>
     </div>
-  </header>
+  </div>
+
+  <!-- NEW: Backdrop Dark Layer for Mobile Sidebar -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+</header>
+
+    <!-- ================= HERO SECTION ================= -->
+<section class="hero-section">
+  
+  <!-- Background Media Slideshow Layer -->
+  <!-- Background Media Slideshow Layer (Nigeria Portfolio) -->
+<div class="hero-slideshow">
+  
+  <!-- Slide 1: Image (Eko Atlantic City, Victoria Island - Lagos) -->
+  <div class="slide active" 
+       data-location="Eko Atlantic City, Lagos" 
+       data-title="Oceanfront Luxury Penthouse" 
+       style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80');">
+  </div>
+  
+  <!-- Slide 2: Video (Maitama & Asokoro Heights - Abuja) -->
+  <div class="slide video-slide" 
+       data-location="Maitama District, Abuja" 
+       data-title="Diplomatic Zone Smart Villa">
+    <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-building-architecture-41223-large.mp4" type="video/mp4">
+    </video>
+  </div>
+  
+  <!-- Slide 3: Image (GRA Phase 3 - Port Harcourt) -->
+  <div class="slide" 
+       data-location="GRA Phase 3, Port Harcourt" 
+       data-title="Executive Waterfront Residence" 
+       style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80');">
+  </div>
+
+</div>
+
+  <!-- Dark Ambient Overlay for Contrast -->
+  <div class="hero-overlay"></div>
+
+  <!-- Dynamic Property Location Pin (Changes with Slide) -->
+  <div class="location-badge-container">
+    <div class="location-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span id="slideLocation">Beverly Hills, California</span>
+      <span class="location-divider">•</span>
+      <span id="slideTitle" class="property-title-sub">The Grand Palm Estate</span>
+    </div>
+  </div>
+
+  <!-- Main Hero Content -->
+  <div class="hero-content">
+    <div class="hero-header-badge">
+      <span class="pulse-dot"></span> Premier Asset & Property Management
+    </div>
+
+    <h1 class="hero-title">
+      Architectural Mastery.<br>
+      Unrivaled Asset Value.
+    </h1>
+
+    <p class="hero-subtitle">
+      MILAGRO connects global investors and property owners with bespoke real estate management, high-yield developments, and luxury residences worldwide.
+    </p>
+
+    <!-- Floating Glassmorphic Search Engine Widget -->
+    <div class="hero-search-card">
+  <div class="search-tabs">
+    <button class="tab-btn active" data-tab="buy">Buy</button>
+    <button class="tab-btn" data-tab="rent">Rent</button>
+    <button class="tab-btn" data-tab="management">Property Management</button>
+  </div>
+
+  <form class="search-form-grid" onsubmit="event.preventDefault();">
+    <div class="form-group">
+      <label>Location / Landmark</label>
+      <input type="text" placeholder="e.g. Ikoyi, Lekki, Maitama, Ibadan..." required>
+    </div>
+
+    <div class="form-group">
+      <label>Property Category</label>
+      <select>
+        <option value="all">All Categories</option>
+        <option value="duplex">Detached Duplex & Villas</option>
+        <option value="apartments">Serviced Apartments</option>
+        <option value="commercial">Commercial Hubs & Plazas</option>
+        <option value="plots">Dry Land / Development Plots</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Budget Range (NGN)</label>
+      <select>
+        <option value="any">Any Budget</option>
+        <option value="50m">₦50M – ₦150M</option>
+        <option value="300m">₦150M – ₦500M</option>
+        <option value="1b">₦500M – ₦2B+</option>
+      </select>
+    </div>
+
+    <button type="submit" class="hero-search-submit">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span>Search</span>
+    </button>
+  </form>
+</div>
+
+    <!-- Live Proof & Trust Bar -->
+    <div class="hero-trust-bar">
+  <div class="trust-item">
+    <span class="trust-number">₦150B+</span>
+    <span class="trust-label">Assets Under Management</span>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <span class="trust-number">99.2%</span>
+    <span class="trust-label">Tenant Occupancy</span>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <span class="trust-number">6+</span>
+    <span class="trust-label">Nigerian Hubs</span>
+  </div>
+</div>
+  </div>
+
+  <!-- Manual Slide Dots Nav -->
+  <div class="slide-indicators">
+    <span class="indicator active" data-slide="0"></span>
+    <span class="indicator" data-slide="1"></span>
+    <span class="indicator" data-slide="2"></span>
+  </div>
+
+</section>
 
   <script src="assets/js/real.js"></script>
 </body>

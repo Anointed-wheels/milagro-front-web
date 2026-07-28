@@ -112,3 +112,81 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// --- MOBILE SIDEBAR OPEN/CLOSE LOGIC ---
+const mobileToggle = document.getElementById('mobileToggle');
+const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+const navMenu = document.getElementById('navMenu');
+const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+function openMobileSidebar() {
+  navMenu.classList.add('mobile-active');
+  sidebarBackdrop.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevents background body scrolling
+}
+
+function closeMobileSidebar() {
+  navMenu.classList.remove('mobile-active');
+  sidebarBackdrop.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+if (mobileToggle) mobileToggle.addEventListener('click', openMobileSidebar);
+if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeMobileSidebar);
+if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeMobileSidebar);
+
+
+
+// --- HERO BACKGROUND & LOCATION CONTROLLER ---
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.hero-slideshow .slide');
+  const indicators = document.querySelectorAll('.slide-indicators .indicator');
+  const locationText = document.getElementById('slideLocation');
+  const titleText = document.getElementById('slideTitle');
+  
+  let currentSlide = 0;
+  const slideInterval = 6000; // 6 seconds per slide
+
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    indicators[currentSlide].classList.remove('active');
+    
+    currentSlide = index;
+    
+    slides[currentSlide].classList.add('active');
+    indicators[currentSlide].classList.add('active');
+
+    // Dynamic Location & Title Update based on active slide's data attributes
+    const newLocation = slides[currentSlide].getAttribute('data-location');
+    const newTitle = slides[currentSlide].getAttribute('data-title');
+
+    if (locationText && newLocation) locationText.textContent = newLocation;
+    if (titleText && newTitle) titleText.textContent = newTitle;
+  }
+
+  function nextSlide() {
+    let next = (currentSlide + 1) % slides.length;
+    goToSlide(next);
+  }
+
+  // Auto Advance Slideshow
+  let autoSlide = setInterval(nextSlide, slideInterval);
+
+  // Dots Manual Click
+  indicators.forEach((ind, i) => {
+    ind.addEventListener('click', () => {
+      clearInterval(autoSlide);
+      goToSlide(i);
+      autoSlide = setInterval(nextSlide, slideInterval);
+    });
+  });
+
+  // Search Tabs Toggle (Buy, Rent, Property Management)
+  const tabBtns = document.querySelectorAll('.search-tabs .tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+    });
+  });
+});

@@ -446,3 +446,583 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(13, 59, 46, 0.35);
 }
+
+/* --- MOBILE SIDEBAR & TOGGLE STYLES --- */
+
+/* Hide hamburger and close button on desktop */
+.mobile-toggle-btn,
+.close-sidebar-btn {
+  display: none;
+}
+
+/* Dark Backdrop Overlay */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+}
+
+.sidebar-backdrop.active {
+  display: block;
+}
+
+/* Mobile & Tablet Styles (Screens under 992px) */
+@media (max-width: 992px) {
+  
+  /* Show Hamburger Button on Header */
+  .mobile-toggle-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+  }
+
+  .mobile-toggle-btn .bar {
+    width: 24px;
+    height: 2.5px;
+    background-color: #0D3B2E;
+    border-radius: 2px;
+  }
+
+  /* Show Close 'X' Button inside Sidebar */
+  .close-sidebar-btn {
+    display: block;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: #0D3B2E;
+    cursor: pointer;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  /* Transform .nav-menu into a Right-Sliding Sidebar */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden off the right edge */
+    width: 82%;
+    max-width: 340px;
+    height: 100vh;
+    background: #FFFFFF;
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    
+    /* Layout inside sidebar */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.8rem;
+    gap: 1.2rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    
+    /* Smooth slide animation */
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+  }
+
+  /* Active class when toggled */
+  .nav-menu.mobile-active {
+    right: 0; /* Slides into view */
+  }
+
+  /* Full width items inside mobile sidebar */
+  .nav-menu .nav-item, 
+  .nav-menu .dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 1.05rem;
+  }
+
+  /* Mega menu dropdown adaptation inside sidebar */
+  .mega-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    box-shadow: none;
+    border: none;
+    padding: 0.8rem 0;
+    display: none;
+    width: 100%;
+  }
+
+  .dropdown-item.active .mega-menu {
+    display: block;
+  }
+
+  .mega-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* --- MOBILE SIDEBAR & FULL-WIDTH DROPDOWN ACCORDIONS --- */
+
+@media (max-width: 992px) {
+  
+  /* Ensure the sidebar menu takes proper width */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 380px; /* Slightly wider drawer for comfortable tap targets */
+    height: 100vh;
+    background: #FFFFFF;
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    padding: 2rem 1.2rem; /* Reduced horizontal padding to give mega-menu max room */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Forces all items inside to fill 100% width */
+    gap: 0.8rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+  }
+
+  /* Make Dropdown Item Containers stretch 100% width */
+  .dropdown-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Dropdown Trigger Buttons */
+  .dropdown-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    background: rgba(13, 59, 46, 0.04);
+    border-radius: 10px;
+  }
+
+  /* --- MEGA MENU ACCORDION BOX (PROPERTIES & AGENTS) --- */
+  .mega-menu {
+    position: static !important; /* Disables absolute/desktop positioning */
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(13, 59, 46, 0.12) !important;
+    border-radius: 12px;
+    background: #F8FAFC !important; /* Subtle contrast background */
+    padding: 1.2rem 1rem !important;
+    margin-top: 0.5rem;
+    width: 100% !important; /* Force full width inside sidebar */
+    box-sizing: border-box !important;
+    display: none; /* Controlled by accordion click */
+  }
+
+  /* Show when dropdown parent is active */
+  .dropdown-item.active .mega-menu {
+    display: block !important;
+  }
+
+  /* Hide redundant desktop close button inside mobile mega menu */
+  .mega-header .close-dropdown-btn {
+    display: none !important;
+  }
+
+  .mega-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .mega-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #8C7323; /* Accent Gold color */
+    font-weight: 800;
+  }
+
+  /* Reset Mega Grid Layout to Single-Column Full Width */
+  .mega-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+    width: 100% !important;
+  }
+
+  .mega-col {
+    width: 100% !important;
+  }
+
+  .mega-col h4 {
+    font-size: 0.9rem;
+    color: #0D3B2E;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    border-left: 3px solid #0D3B2E;
+    padding-left: 0.5rem;
+  }
+
+  .mega-col ul {
+    list-style: none;
+    padding-left: 0.5rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mega-col ul li a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: block;
+    padding: 0.3rem 0;
+    transition: color 0.2s;
+  }
+
+  .mega-col ul li a:hover {
+    color: #0D3B2E;
+  }
+}
+
+/* ================= HERO SECTION STYLES ================= */
+.hero-section {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem 3rem;
+  overflow: hidden;
+  background: #080D1A; /* Dark fallback background */
+}
+
+/* --- Slideshow Engine --- */
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.2s ease-in-out, transform 7s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, 
+    rgba(8, 13, 26, 0.65) 0%, 
+    rgba(13, 59, 46, 0.75) 100%
+  );
+  z-index: 2;
+}
+
+/* --- Dynamic Location Pin Badge --- */
+.location-badge-container {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.location-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(13, 36, 30, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.1rem;
+  border-radius: 30px;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: all 0.4s ease;
+}
+
+.location-badge svg {
+  color: #8C7323; /* Gold Icon */
+}
+
+.location-divider {
+  opacity: 0.4;
+}
+
+.property-title-sub {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* --- Hero Center Content --- */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.hero-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #00F5D4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00F5D4;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00F5D4;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 245, 212, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 245, 212, 0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 245, 212, 0); }
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4.8vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 720px;
+  margin: 0 auto 2.2rem;
+  line-height: 1.6;
+}
+
+/* --- Floating Glassmorphic Search Engine --- */
+.hero-search-card {
+  background: rgba(13, 36, 30, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.search-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.8rem;
+}
+
+.search-tabs .tab-btn {
+  all: unset;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.search-tabs .tab-btn.active,
+.search-tabs .tab-btn:hover {
+  background: #0D3B2E;
+  border: 1px solid #8C7323;
+  color: #FFFFFF;
+}
+
+.search-form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #8C7323; /* Accent Gold */
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4rem;
+}
+
+.form-group input, 
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #8C7323;
+}
+
+.form-group select option {
+  background: #0D241E;
+  color: #FFFFFF;
+}
+
+.hero-search-submit {
+  all: unset;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #0D3B2E 0%, #8C7323 100%);
+  color: #FFFFFF;
+  padding: 0.75rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero-search-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(140, 115, 35, 0.4);
+}
+
+/* --- Proof & Trust Bar --- */
+.hero-trust-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trust-number {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.trust-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Slide Dots Indicators --- */
+.slide-indicators {
+  position: absolute;
+  bottom: 1.2rem;
+  z-index: 10;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.slide-indicators .indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slide-indicators .indicator.active {
+  background: #8C7323;
+  width: 28px;
+  border-radius: 10px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+  .search-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-badge-container {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .hero-trust-bar {
+    gap: 1rem;
+    padding: 0.8rem 1.2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .trust-divider {
+    display: none;
+  }
+}
