@@ -1,0 +1,255 @@
+:root {
+  /* Milagro Brand Base */
+  --milagro-green: #0D3B2E;
+  --milagro-green-light: #185A47;
+  
+  /* Sector 1: Real Estate High-End Gold & Dark Slate */
+  --estate-dark: #080D1A;
+  --estate-accent: #D4AF37;
+  --estate-glow: rgba(212, 175, 55, 0.4);
+
+  /* Sector 2: Cleaning Electric Mint & Deep Emerald */
+  --cleaning-dark: #031D16;
+  --cleaning-accent: #00F5D4;
+  --cleaning-glow: rgba(0, 245, 212, 0.4);
+
+  --text-light: #F8FAFC;
+  --text-dim: #94A3B8;
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+  color: var(--text-light);
+}
+
+/* Floating Brand Logo Header */
+.brand-header {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.logo-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(13, 59, 46, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Split Screen Layout */
+.split-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+/* Left Panel: Real Estate */
+.real-estate-panel {
+  left: 0;
+  background: var(--estate-dark);
+  clip-path: path("M 0,0 L 550,0 C 700,500 400,500 550,1000 L 0,1000 Z");
+  z-index: 10;
+  justify-content: flex-start;
+  padding-left: 8%;
+}
+
+.real-estate-panel .panel-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15), transparent 60%),
+              url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover;
+  filter: brightness(0.4) contrast(1.1);
+  transition: var(--transition-smooth);
+}
+
+/* Right Panel: Cleaning */
+.cleaning-panel {
+  right: 0;
+  background: var(--cleaning-dark);
+  z-index: 5;
+  justify-content: flex-end;
+  padding-right: 8%;
+}
+
+.cleaning-panel .panel-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 50%, rgba(0, 245, 212, 0.15), transparent 60%),
+              url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80') center/cover;
+  filter: brightness(0.35) contrast(1.1);
+  transition: var(--transition-smooth);
+}
+
+/* Panel Content Styling */
+.panel-content {
+  position: relative;
+  z-index: 20;
+  max-width: 480px;
+}
+
+.category-tag {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.tag-estate {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--estate-accent);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.tag-cleaning {
+  background: rgba(0, 245, 212, 0.15);
+  color: var(--cleaning-accent);
+  border: 1px solid rgba(0, 245, 212, 0.4);
+}
+
+.panel h2 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.panel p {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Portal Buttons */
+.portal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-estate {
+  background: linear-gradient(135deg, var(--estate-accent), #B38F2A);
+  color: #000;
+  box-shadow: 0 10px 30px var(--estate-glow);
+}
+
+.btn-cleaning {
+  background: linear-gradient(135deg, var(--cleaning-accent), #00B8A9);
+  color: #000;
+  box-shadow: 0 10px 30px var(--cleaning-glow);
+}
+
+.portal-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* Hover Dynamic Effects */
+.split-container.hover-estate .real-estate-panel {
+  clip-path: path("M 0,0 L 700,0 C 850,500 550,500 700,1000 L 0,1000 Z");
+}
+.split-container.hover-estate .real-estate-panel .panel-bg {
+  filter: brightness(0.65) scale(1.05);
+}
+
+.split-container.hover-cleaning .real-estate-panel {
+  clip-path: path("M 0,0 L 350,0 C 500,500 200,500 350,1000 L 0,1000 Z");
+}
+.split-container.hover-cleaning .cleaning-panel .panel-bg {
+  filter: brightness(0.65) scale(1.05);
+}
+
+/* Full Screen Liquid Transition */
+.transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--milagro-green);
+  z-index: 999;
+  transform: translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+  pointer-events: none;
+}
+
+.transition-overlay.active {
+  transform: translateY(0%);
+}
+
+/* Responsive Curvy Mobile Split */
+@media (max-width: 900px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .real-estate-panel {
+    height: 55%;
+    width: 100%;
+    padding-left: 5%;
+    padding-top: 6rem;
+    clip-path: path("M 0,0 L 1000,0 L 1000,320 C 600,420 400,280 0,380 Z");
+  }
+
+  .cleaning-panel {
+    height: 50%;
+    width: 100%;
+    top: 50%;
+    padding-right: 5%;
+    padding-bottom: 3rem;
+  }
+
+  .brand-header {
+    top: 1rem;
+  }
+
+  .logo-card {
+    padding: 0.5rem 1.2rem;
+  }
+
+  .brand-logo {
+    height: 40px;
+  }
+}
