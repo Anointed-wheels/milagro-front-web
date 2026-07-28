@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate & Property Management | MILAGRO</title>
+  <link rel="stylesheet" href="assets/css/real.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sticky Premium Navigation Bar -->
+  <header class="navbar-sticky">
+    <div class="nav-container">
+      
+      <!-- Brand Logo (Left) -->
+      <a href="index.html" class="nav-brand">
+        <img src="assets/media/images/mili.png" alt="MILAGRO Logo" class="nav-logo">
+      </a>
+
+      <!-- Center Navigation Links -->
+      <nav class="nav-menu">
+        
+        <!-- Search Trigger Button -->
+        <button class="nav-item search-trigger-btn" id="searchToggle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Search</span>
+        </button>
+
+        <!-- Properties Mega Menu Item -->
+        <div class="nav-item dropdown-item">
+          <button class="dropdown-trigger">Properties <span class="arrow">▾</span></button>
+          
+          <div class="mega-menu" id="propertiesMenu">
+            <div class="mega-header">
+              <span class="mega-title">Property Listings</span>
+              <button class="close-dropdown-btn">&times;</button>
+            </div>
+            <div class="mega-grid three-columns">
+              <!-- Column 1: Local -->
+              <div class="mega-col">
+                <h4>Local</h4>
+                <ul>
+                  <li><a href="#" data-filter="near-me">Properties Near Me</a></li>
+                </ul>
+              </div>
+              <!-- Column 2: Worldwide -->
+              <div class="mega-col">
+                <h4>Worldwide</h4>
+                <ul>
+                  <li><a href="#">View Properties Globally</a></li>
+                  <li><a href="#">New Development Projects</a></li>
+                  <li><a href="#">Properties Coming Soon</a></li>
+                  <li><a href="#">Properties for Auction</a></li>
+                  <li><a href="#">Properties by Lifestyle</a></li>
+                  <li><a href="#">Properties by Destination</a></li>
+                  <li><a href="#">Properties with Videos</a></li>
+                  <li><a href="#">Properties with Virtual Reality</a></li>
+                </ul>
+              </div>
+              <!-- Column 3: Cities & Developments -->
+              <div class="mega-col">
+                <h4>Popular Cities</h4>
+                <ul>
+                  <li><a href="#">New York</a></li>
+                  <li><a href="#">Los Angeles</a></li>
+                  <li><a href="#">The Hamptons</a></li>
+                  <li><a href="#">London</a></li>
+                  <li><a href="#">Dubai</a></li>
+                  <li><a href="#">Paris</a></li>
+                </ul>
+                <h4 class="mt-section">New Developments</h4>
+                <ul>
+                  <li><a href="#">Discover Developments</a></li>
+                  <li><a href="#">Development Overview</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agents Mega Menu Item -->
+        <div class="nav-item dropdown-item">
+          <button class="dropdown-trigger">Agents <span class="arrow">▾</span></button>
+          
+          <div class="mega-menu" id="agentsMenu">
+            <div class="mega-header">
+              <span class="mega-title">Our Advisors & Offices</span>
+              <button class="close-dropdown-btn">&times;</button>
+            </div>
+            <div class="mega-grid two-columns">
+              <div class="mega-col">
+                <h4>Local Experts</h4>
+                <ul>
+                  <li><a href="#">Your Local Agents</a></li>
+                  <li><a href="#">Your Local Offices</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4>Worldwide Network</h4>
+                <ul>
+                  <li><a href="#">Search Agents Globally</a></li>
+                  <li><a href="#">Search Offices Globally</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Us -->
+        <a href="#about" class="nav-item nav-link">About Us</a>
+
+      </nav>
+
+      <!-- Right Utility Actions -->
+      <div class="nav-actions">
+        <!-- Dark/Light Theme Switcher -->
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <span class="sun-icon">☀️</span>
+          <span class="moon-icon">🌙</span>
+        </button>
+        <a href="#contact" class="nav-cta-btn">Contact Us</a>
+      </div>
+
+    </div>
+
+    <!-- Search Modal / Dropdown Layer -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-box-card">
+        <div class="search-box-header">
+          <h3>Search Properties & Management</h3>
+          <button class="close-search-btn" id="closeSearchBtn">&times;</button>
+        </div>
+        
+        <!-- Search Controls -->
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="searchInput" placeholder="Type city, neighborhood, zip code or property type..." autocomplete="off">
+        </div>
+
+        <!-- Filter Tags -->
+        <div class="search-filter-pills">
+          <span class="filter-label">Filter:</span>
+          <button class="filter-btn active" data-type="all">All</button>
+          <button class="filter-btn" data-type="buy">Buy</button>
+          <button class="filter-btn" data-type="rent">Rent</button>
+          <button class="filter-btn" data-type="developments">Developments</button>
+          <button class="filter-btn" data-type="sell">Sell</button>
+          <button class="filter-btn" data-type="more">More</button>
+        </div>
+
+        <!-- JS Live Results Drawer -->
+        <div class="search-results-container" id="searchResults">
+          <p class="search-hint">Type above or click a filter category to see matching property listings.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script src="assets/js/real.js"></script>
+</body>
+</html>
