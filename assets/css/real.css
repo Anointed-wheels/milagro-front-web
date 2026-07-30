@@ -1767,3 +1767,450 @@ body.dark .experts-section {
     height: 340px; /* Compact height for mobile */
   }
 }
+
+/* ================= CURATED LIFESTYLES & INSIGHTS SECTION ================= */
+
+.lifestyles-section {
+  padding: 6rem 2rem;
+  background-color: var(--bg-main, #FFFFFF);
+  color: var(--text-main, #0D241E);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  border-top: 1px solid rgba(13, 59, 46, 0.08);
+}
+
+.lifestyles-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- Header Section --- */
+.lifestyles-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lifestyles-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  color: var(--heading-color, #0D3B2E);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.5px;
+  transition: color 0.4s ease;
+}
+
+.lifestyles-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted, #475569);
+  margin-bottom: 2rem;
+  max-width: 680px;
+  transition: color 0.4s ease;
+}
+
+.lifestyles-main-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--heading-color, #0D3B2E);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--heading-color, #0D3B2E);
+  transition: gap 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.lifestyles-main-link:hover {
+  gap: 1rem;
+  color: #8C7323; /* Accent Gold */
+  border-color: #8C7323;
+}
+
+.lifestyles-main-link .arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.lifestyles-main-link:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+/* --- 3-Column Grid --- */
+.lifestyles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.lifestyle-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  group: card;
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  background-color: rgba(13, 59, 46, 0.05);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lifestyle-card:hover .card-img {
+  transform: scale(1.06);
+}
+
+.card-content {
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--heading-color, #0D3B2E);
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.lifestyle-card:hover .card-title {
+  color: #8C7323; /* Gold highlight on card hover */
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted, #64748B);
+  transition: color 0.4s ease;
+}
+
+
+/* ================= ALL DARK MODE TARGETS ================= */
+
+[data-theme="dark"] .lifestyles-section,
+body.dark-mode .lifestyles-section,
+html.dark-mode .lifestyles-section,
+body.dark .lifestyles-section {
+  background-color: #080D1A !important;
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .lifestyles-title,
+[data-theme="dark"] .card-title,
+body.dark-mode .lifestyles-title,
+body.dark-mode .card-title,
+html.dark-mode .lifestyles-title,
+html.dark-mode .card-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .lifestyles-subtitle,
+[data-theme="dark"] .card-desc,
+body.dark-mode .lifestyles-subtitle,
+body.dark-mode .card-desc,
+html.dark-mode .lifestyles-subtitle,
+html.dark-mode .card-desc {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme="dark"] .lifestyles-main-link,
+body.dark-mode .lifestyles-main-link {
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .lifestyles-main-link:hover,
+body.dark-mode .lifestyles-main-link:hover {
+  color: #D4AF37 !important;
+  border-color: #D4AF37 !important;
+}
+
+[data-theme="dark"] .lifestyle-card:hover .card-title,
+body.dark-mode .lifestyle-card:hover .card-title {
+  color: #D4AF37 !important;
+}
+
+[data-theme="dark"] .card-image-wrapper,
+body.dark-mode .card-image-wrapper {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+
+/* ================= MOBILE & TABLET RESPONSIVENESS ================= */
+
+@media (max-width: 992px) {
+  .lifestyles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .lifestyles-section {
+    padding: 4rem 1.25rem;
+  }
+
+  .lifestyles-header {
+    margin-bottom: 3rem;
+  }
+
+  .lifestyles-grid {
+    grid-template-columns: 1fr; /* Single column stack for mobile view */
+    gap: 2.5rem;
+  }
+
+  .card-image-wrapper {
+    height: 260px; /* Slightly shorter image frames for small screens */
+  }
+}
+
+/* ================= POPULAR DISCOVERY & ABOUT SECTION ================= */
+
+.discovery-about-section {
+  padding: 6rem 2rem 5rem;
+  background-color: var(--bg-main, #FFFFFF);
+  color: var(--text-main, #0D241E);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  border-top: 1px solid rgba(13, 59, 46, 0.08);
+}
+
+.discovery-about-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- 3-Column Discovery Grid --- */
+.discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+  margin-bottom: 4rem;
+}
+
+.discovery-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.discovery-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--heading-color, #0D3B2E);
+  margin-bottom: 0.3rem;
+  transition: color 0.4s ease;
+}
+
+.discovery-subheading {
+  font-size: 0.88rem;
+  color: var(--text-muted, #64748B);
+  margin-bottom: 1.5rem;
+  transition: color 0.4s ease;
+}
+
+/* List Styling */
+.discovery-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.discovery-link {
+  text-decoration: none;
+  font-size: 0.98rem;
+  color: var(--heading-color, #0D3B2E);
+  font-weight: 500;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  display: inline-block;
+}
+
+.discovery-link:hover {
+  color: #8C7323; /* Accent Gold */
+  padding-left: 4px;
+}
+
+/* Technical See All Link */
+.see-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8C7323;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  margin-top: auto;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.see-all-btn:hover {
+  gap: 0.8rem;
+  color: var(--heading-color, #0D3B2E);
+}
+
+.see-all-btn .arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.see-all-btn:hover .arrow-icon {
+  transform: translateX(3px);
+}
+
+/* --- Technical Section Divider --- */
+.section-full-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(140, 115, 35, 0.3) 50%, transparent 100%);
+  margin: 1rem 0 4rem;
+}
+
+/* --- About Milagro Corporate Box --- */
+.about-brand-box {
+  background: rgba(13, 59, 46, 0.03);
+  border: 1px solid rgba(13, 59, 46, 0.08);
+  border-radius: 16px;
+  padding: 3rem;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.about-brand-header {
+  margin-bottom: 1.5rem;
+}
+
+.about-brand-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8C7323;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-brand-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: var(--heading-color, #0D3B2E);
+  transition: color 0.4s ease;
+}
+
+.about-brand-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.about-brand-body p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted, #475569);
+  transition: color 0.4s ease;
+}
+
+.about-brand-body strong {
+  color: var(--heading-color, #0D3B2E);
+  transition: color 0.4s ease;
+}
+
+
+/* ================= ALL DARK MODE TARGETS ================= */
+
+[data-theme="dark"] .discovery-about-section,
+body.dark-mode .discovery-about-section,
+html.dark-mode .discovery-about-section,
+body.dark .discovery-about-section {
+  background-color: #080D1A !important;
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .discovery-heading,
+[data-theme="dark"] .discovery-link,
+[data-theme="dark"] .about-brand-title,
+body.dark-mode .discovery-heading,
+body.dark-mode .discovery-link,
+body.dark-mode .about-brand-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .discovery-subheading,
+[data-theme="dark"] .about-brand-body p,
+body.dark-mode .discovery-subheading,
+body.dark-mode .about-brand-body p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme="dark"] .about-brand-body strong,
+body.dark-mode .about-brand-body strong {
+  color: #D4AF37 !important;
+}
+
+[data-theme="dark"] .discovery-link:hover,
+body.dark-mode .discovery-link:hover {
+  color: #D4AF37 !important;
+}
+
+[data-theme="dark"] .see-all-btn,
+body.dark-mode .see-all-btn {
+  color: #D4AF37 !important;
+}
+
+[data-theme="dark"] .see-all-btn:hover,
+body.dark-mode .see-all-btn:hover {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .about-brand-box,
+body.dark-mode .about-brand-box {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+
+/* ================= MOBILE & TABLET RESPONSIVENESS ================= */
+
+@media (max-width: 992px) {
+  .discovery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .discovery-about-section {
+    padding: 4rem 1.25rem 3.5rem;
+  }
+
+  .discovery-grid {
+    grid-template-columns: 1fr; /* Stack vertically on small mobile screens */
+    gap: 2.5rem;
+  }
+
+  .about-brand-box {
+    padding: 1.8rem;
+  }
+}
