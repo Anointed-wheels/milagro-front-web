@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Homes for Sale | Milagro Integrated Service Network</title>
+  <link rel="stylesheet" href="assets/css/real.css">
+  <link rel="stylesheet" href="assets/css/properties.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ================= MAIN NAVIGATION (HIDES ON SCROLL DOWN) ================= -->
+  <header class="navbar-sticky">
+  <div class="nav-container">
+    
+    <!-- Brand Logo (Left) -->
+    <a href="index.html" class="nav-brand">
+      <img src="assets/media/images/mili.png" alt="MILAGRO Logo" class="nav-logo">
+    </a>
+
+    <!-- NEW: Hamburger Button (Only visible on mobile) -->
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Open Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Center Navigation Links (Becomes Mobile Sidebar) -->
+    <nav class="nav-menu" id="navMenu">
+      
+      <!-- NEW: Mobile Close Button (Only visible inside mobile sidebar) -->
+      <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">&times;</button>
+
+      <!-- Search Trigger Button -->
+      <button class="nav-item search-trigger-btn" id="searchToggle">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search</span>
+      </button>
+
+      <!-- Properties Mega Menu Item -->
+      <div class="nav-item dropdown-item">
+        <button class="dropdown-trigger">Properties <span class="arrow">▾</span></button>
+        
+        <div class="mega-menu" id="propertiesMenu">
+          <div class="mega-header">
+            <span class="mega-title">Property Listings</span>
+            <button class="close-dropdown-btn">&times;</button>
+          </div>
+          <div class="mega-grid three-columns">
+            <!-- Column 1: Local -->
+            <div class="mega-col">
+              <h4>Local</h4>
+              <ul>
+                <li><a href="#" data-filter="near-me">Properties Near Me</a></li>
+              </ul>
+            </div>
+            <!-- Column 2: Worldwide -->
+            <div class="mega-col">
+              <h4>Worldwide</h4>
+              <ul>
+                <li><a href="#">View Properties Globally</a></li>
+                <li><a href="#">New Development Projects</a></li>
+                <li><a href="#">Properties Coming Soon</a></li>
+                <li><a href="#">Properties for Auction</a></li>
+                <li><a href="#">Properties by Lifestyle</a></li>
+                <li><a href="#">Properties by Destination</a></li>
+                <li><a href="#">Properties with Videos</a></li>
+                <li><a href="#">Properties with Virtual Reality</a></li>
+              </ul>
+            </div>
+            <!-- Column 3: Cities & Developments -->
+            <div class="mega-col">
+              <h4>Popular Cities</h4>
+              <ul>
+                <li><a href="#">New York</a></li>
+                <li><a href="#">Los Angeles</a></li>
+                <li><a href="#">The Hamptons</a></li>
+                <li><a href="#">London</a></li>
+                <li><a href="#">Dubai</a></li>
+                <li><a href="#">Paris</a></li>
+              </ul>
+              <h4 class="mt-section">New Developments</h4>
+              <ul>
+                <li><a href="#">Discover Developments</a></li>
+                <li><a href="#">Development Overview</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agents Mega Menu Item -->
+      <div class="nav-item dropdown-item">
+        <button class="dropdown-trigger">Agents <span class="arrow">▾</span></button>
+        
+        <div class="mega-menu" id="agentsMenu">
+          <div class="mega-header">
+            <span class="mega-title">Our Advisors & Offices</span>
+            <button class="close-dropdown-btn">&times;</button>
+          </div>
+          <div class="mega-grid two-columns">
+            <div class="mega-col">
+              <h4>Local Experts</h4>
+              <ul>
+                <li><a href="#">Your Local Agents</a></li>
+                <li><a href="#">Your Local Offices</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4>Worldwide Network</h4>
+              <ul>
+                <li><a href="#">Search Agents Globally</a></li>
+                <li><a href="#">Search Offices Globally</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Us -->
+      <a href="real-estate.html" class="nav-item nav-link">About Us</a>
+
+    </nav>
+
+    <!-- Right Utility Actions -->
+    <div class="nav-actions">
+      <!-- Dark/Light Theme Switcher -->
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+      <a href="#contact" class="nav-cta-btn">Contact Us</a>
+    </div>
+
+  </div>
+
+  <!-- Search Modal / Dropdown Layer -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box-card">
+      <div class="search-box-header">
+        <h3>Search Properties & Management</h3>
+        <button class="close-search-btn" id="closeSearchBtn">&times;</button>
+      </div>
+      
+      <!-- Search Controls -->
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="Type city, neighborhood, zip code or property type..." autocomplete="off">
+      </div>
+
+      <!-- Filter Tags -->
+      <div class="search-filter-pills">
+        <span class="filter-label">Filter:</span>
+        <button class="filter-btn active" data-type="all">All</button>
+        <button class="filter-btn" data-type="buy">Buy</button>
+        <button class="filter-btn" data-type="rent">Rent</button>
+        <button class="filter-btn" data-type="developments">Developments</button>
+        <button class="filter-btn" data-type="sell">Sell</button>
+        <button class="filter-btn" data-type="more">More</button>
+      </div>
+
+      <!-- JS Live Results Drawer -->
+      <div class="search-results-container" id="searchResults">
+        <p class="search-hint">Type above or click a filter category to see matching property listings.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW: Backdrop Dark Layer for Mobile Sidebar -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+</header>
+
+  <!-- ================= STICKY SUB-NAV FILTER BAR ================= -->
+  <div class="sticky-subnav" id="stickySubnav">
+    <div class="subnav-container">
+      
+      <!-- Search Input Box -->
+      <div class="subnav-search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="subnavSearchInput" placeholder="Address, City, Zip or Country..." />
+      </div>
+
+      <!-- Quick Filter Options -->
+      <div class="subnav-filters">
+        
+        <!-- Buy / Rent Switch -->
+        <div class="filter-segmented">
+          <button class="segment-btn active" data-intent="buy">Buy</button>
+          <button class="segment-btn" data-intent="rent">Rent</button>
+        </div>
+
+        <!-- Price Dropdown -->
+        <div class="filter-dropdown">
+          <button class="dropdown-trigger">
+            <span>Price Range</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+
+        <!-- Beds & Baths Dropdown -->
+        <div class="filter-dropdown">
+          <button class="dropdown-trigger">
+            <span>Beds & Baths</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+
+        <!-- Home Types Dropdown -->
+        <div class="filter-dropdown hide-mobile">
+          <button class="dropdown-trigger">
+            <span>Home Types</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+
+        <!-- All Filters Drawer Button -->
+        <button class="all-filters-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          <span>All Filters</span>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= DIRECTORY RESULTS SECTION ================= -->
+  <main class="properties-page-main" id="searchResults">
+    <div class="properties-container">
+      
+      <!-- Dynamic Header matching reference site -->
+      <div class="results-header-bar">
+        <div class="header-titles">
+          <h1 class="results-title">Viewing 24 of 771,977 Homes for Sale in All Locations</h1>
+          <p class="results-subtext">Showing listings marketed by all accredited brokers in the searched area.</p>
+        </div>
+
+        <div class="results-sorting">
+          <label for="sortSelect">Sort:</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="exclusive">Exclusive (Default)</option>
+            <option value="newest">New Listing</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="price-low">Price: Low to High</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- PROPERTY CARDS GRID -->
+      <div class="properties-grid">
+        
+        <!-- CARD 1 -->
+        <article class="property-card">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Elegant Residence Overlooking Liszt Ferenc Square" class="card-img">
+            <span class="card-tag">New Listing</span>
+            <button class="bookmark-btn" aria-label="Save Property">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Elegant Residence Overlooking Liszt Ferenc Square</h3>
+            <p class="card-location">Budapest, Budapest, 1054 Hungary</p>
+            <div class="card-price">$299,110,752 USD</div>
+            <div class="card-specs">
+              <span><strong>2</strong> Bedrooms</span>
+              <span><strong>2</strong> Bathrooms (2 Full)</span>
+            </div>
+          </div>
+          <div class="card-brokerage">
+            Marketed By Hungary Sotheby's International Realty
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="property-card">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Caesarea Palace" class="card-img">
+            <button class="bookmark-btn" aria-label="Save Property">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">A Masterpiece of Baroque and Rococo Architecture in Caesarea</h3>
+            <p class="card-location">Caesarea, Israel</p>
+            <div class="card-price">$210,000,000 USD</div>
+            <div class="card-specs">
+              <span><strong>5</strong> Bedrooms</span>
+              <span><strong>15</strong> Bathrooms (5 Full 10 Partial)</span>
+              <span>Interior: <strong>75,347</strong> Sq Ft.</span>
+              <span>Exterior: <strong>11,000</strong> m²</span>
+            </div>
+          </div>
+          <div class="card-brokerage">
+            Marketed By Israel Sotheby's International Realty
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="property-card">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Belgravia Trophy Home" class="card-img">
+            <button class="bookmark-btn" aria-label="Save Property">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Belgravia - London's most magnificent Trophy home</h3>
+            <p class="card-location">London, England, United Kingdom</p>
+            <div class="card-price">$182,186,235 USD</div>
+            <div class="card-specs">
+              <span><strong>28</strong> Bedrooms</span>
+              <span><strong>27</strong> Bathrooms (27 Full)</span>
+              <span>Interior: <strong>30,941</strong> Sq Ft.</span>
+            </div>
+          </div>
+          <div class="card-brokerage">
+            Marketed By United Kingdom Sotheby's International Realty
+          </div>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="property-card">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="St George's Hill House" class="card-img">
+            <span class="card-tag">New Listing</span>
+            <button class="bookmark-btn" aria-label="Save Property">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">A Newly Refurbished House with Far-Reaching Views in St George’s Hill</h3>
+            <p class="card-location">England, United Kingdom</p>
+            <div class="card-price">$161,943,320 USD</div>
+            <div class="card-specs">
+              <span><strong>7</strong> Bedrooms</span>
+              <span><strong>8</strong> Bathrooms (8 Full)</span>
+              <span>Interior: <strong>11,265</strong> Sq Ft.</span>
+            </div>
+          </div>
+          <div class="card-brokerage">
+            Marketed By United Kingdom Sotheby's International Realty
+          </div>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="property-card">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Long Lake Estate" class="card-img">
+            <button class="bookmark-btn" aria-label="Save Property">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
+          </div>
+          <div class="card-body"><h3 class="card-title" id="sovereign-glass-villa">1594 Elk Pond Rd</h3>
+            
+            <p class="card-location">Long Lake, New York, 12847 United States</p>
+            <div class="card-price">$125,000,000 USD</div>
+            <div class="card-specs">
+              <span><strong>34</strong> Bedrooms</span>
+              <span><strong>19</strong> Bathrooms (17 Full 2 Partial)</span>
+              <span>Interior: <strong>30,000</strong> Sq Ft.</span>
+              <span>Exterior: <strong>36,486.7</strong> Acre(s)</span>
+            </div>
+          </div>
+          <div class="card-brokerage">
+            Marketed By Four Seasons Sotheby's International Realty
+          </div>
+        </article>
+
+        <!-- CARD 6 (Video Badge + Price Upon Request) -->
+        <article class="property-card">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Sans Souci Bahamas" class="card-img">
+            <span class="card-tag video-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video
+            </span>
+            <button class="bookmark-btn" aria-label="Save Property">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Sans Souci</h3>
+            <p class="card-location">Lyford Cay, Nassau and Paradise Island, Bahamas</p>
+            <div class="card-price price-request">Price Upon Request</div>
+            <div class="card-specs">
+              <span><strong>12</strong> Bedrooms</span>
+              <span><strong>18</strong> Bathrooms (16 Full 2 Partial)</span>
+              <span>Interior: <strong>29,000</strong> Sq Ft.</span>
+              <span>Exterior: <strong>5.36</strong> Acre(s)</span>
+            </div>
+          </div>
+          <div class="card-brokerage">
+            Marketed By Lyford Cay Sotheby's International Realty
+          </div>
+        </article>
+
+      </div>
+
+      <!-- PAGINATION MATCHING SOTHEBY'S FORMAT -->
+      <div class="pagination-wrapper">
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn">4</button>
+        <button class="pagination-btn">5</button>
+        <span class="pagination-ellipsis">...</span>
+        <button class="pagination-btn">38</button>
+        <span class="pagination-ellipsis">...</span>
+        <button class="pagination-btn">75</button>
+        <button class="pagination-next-btn">Next &rarr;</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" id="footer">
+  <div class="footer-container">
+    
+    <!-- TOP SECTION: Brand Logo & Main Navigation Columns -->
+    <div class="footer-top-grid">
+      
+      <!-- Brand Column -->
+      <div class="footer-brand-col">
+        <a href="#" class="footer-logo">
+          <span class="logo-text-main">MILAGRO</span>
+          <span class="logo-text-sub">INTEGRATED SERVICE</span>
+        </a>
+        <p class="footer-tagline">
+          Connecting premier properties across Lagos, Abuja, Ibadan, Oyo, and Jos to a global network of buyers and investors.
+        </p>
+        <div class="footer-lang-selector">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>English (Nigeria)</span>
+        </div>
+      </div>
+
+      <!-- Column 1: Company -->
+      <div class="footer-nav-col">
+        <h4 class="footer-col-title">Company</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Us <span class="nav-arrow">→</span></a></li>
+          <li><a href="#luxury-outlook">Luxury Outlook <span class="nav-arrow">→</span></a></li>
+          <li><a href="#giving-back">Giving Back & Impact <span class="nav-arrow">→</span></a></li>
+          <li><a href="#press">Recent Press <span class="nav-arrow">→</span></a></li>
+          <li><a href="#press-releases">Brand Press Releases <span class="nav-arrow">→</span></a></li>
+          <li><a href="#careers">Join Our Network <span class="nav-arrow">→</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Tech & Media -->
+      <div class="footer-nav-col">
+        <h4 class="footer-col-title">Prop-Tech & Apps</h4>
+        <ul class="footer-links">
+          <li><a href="#mobile-app">Milagro Mobile App <span class="nav-arrow">→</span></a></li>
+          <li><a href="#tv-app">Milagro Smart TV App <span class="nav-arrow">→</span></a></li>
+          <li><a href="#virtual-reality">3D Virtual Reality Tours <span class="nav-arrow">→</span></a></li>
+          <li><a href="#auction-services">Concierge Property Auctions <span class="nav-arrow">→</span></a></li>
+          <li><a href="#advisory">Institute of Real Estate <span class="nav-arrow">→</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact & Legal Directives -->
+      <div class="footer-nav-col">
+        <h4 class="footer-col-title">Compliance & Terms</h4>
+        <ul class="footer-links">
+          <li><a href="#contact">Contact Us <span class="nav-arrow">→</span></a></li>
+          <li><a href="#fair-housing">Fair Housing Statement <span class="nav-arrow">→</span></a></li>
+          <li><a href="#privacy">Privacy Policy <span class="nav-arrow">→</span></a></li>
+          <li><a href="#terms">Terms of Use <span class="nav-arrow">→</span></a></li>
+          <li><a href="#accessibility">Accessibility Statement <span class="nav-arrow">→</span></a></li>
+          <li><a href="#cookies">Cookie Preferences <span class="nav-arrow">→</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- MIDDLE SECTION: Social Media Network Links -->
+    <div class="footer-social-bar">
+      <span class="social-label">Connect With Milagro:</span>
+      <div class="social-icon-group">
+        <a href="#" class="social-btn" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="X / Twitter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#000"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.29-2.73.74-5.5 2.68-7.38 1.63-1.61 3.94-2.48 6.22-2.31.02 1.38.01 2.75.01 4.13-.99-.06-2.01.21-2.82.79-.88.61-1.43 1.62-1.47 2.69-.07 1.34.61 2.65 1.74 3.32 1.02.63 2.33.68 3.4.15 1.07-.5 1.77-1.57 1.83-2.76.01-3.99.01-7.98.01-11.97z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- TECHNICAL SEPARATOR LINE -->
+    <div class="footer-divider"></div>
+
+    <!-- BOTTOM SECTION: Disclaimers & Copyright -->
+    <div class="footer-disclaimer-box">
+      <p class="disclaimer-text">
+        <strong>Do Not Sell or Share My Personal Information.</strong> Milagro Integrated Service Network maintains strict compliance with fair housing regulations, consumer protection mandates, and equal opportunity standards across all operated territories.
+      </p>
+      
+      <p class="disclaimer-text">
+        Copyright © 2006-2026 <strong>Milagro Integrated Service Network LLC.</strong> All Rights Reserved. Each regional office and franchise advisory hub is independently owned and operated. Milagro Integrated Service, the Milagro crest, and "For the Ongoing Collection of Exceptional Properties" are registered service marks.
+      </p>
+
+      <p class="disclaimer-text micro-text">
+        The information set forth on this platform is derived from sources considered reliable, but because it is supplied by third parties, developers, and regional network affiliates, we cannot represent that it is accurate or complete, and it should not be relied upon as such. Offerings are subject to errors, omissions, price updates, or withdrawal without prior notice. All property dimensions and land parameters are approximate and should be independently verified through certified survey professionals, licensed architects, or civil engineers.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+  <script src="assets/js/real.js"></script>
+  <script src="assets/js/total.js"></script>
+
+  <!-- <script src="assets/js/properties.js"></script> -->
+</body>
+</html>
