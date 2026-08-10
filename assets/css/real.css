@@ -23,6 +23,20 @@
   --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Fix navbar overflow container */
+.navbar-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden; /* Stops off-screen children from expanding page width */
+}
+
 /* Sticky Navbar Base */
 .navbar-sticky {
   position: sticky;
@@ -72,6 +86,7 @@
   gap: 0.4rem;
   transition: all 0.2s ease;
   text-decoration: none;
+  /* z-index: 100000000000000000000000000000000000000000000000000000000000000; */
 }
 
 .nav-item:hover {
@@ -193,6 +208,8 @@
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+
+  z-index: 100000000000000000000000000000000000000000000000000000000000;
 }
 
 .search-overlay.active {
@@ -471,6 +488,14 @@
 
 /* Mobile & Tablet Styles (Screens under 992px) */
 @media (max-width: 992px) {
+
+  .nav-container{
+    /* z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999; */
+  }
+
+  header{
+    z-index: 10000;
+  }
   
   /* Show Hamburger Button on Header */
   .mobile-toggle-btn {
@@ -569,6 +594,7 @@
   
   /* Ensure the sidebar menu takes proper width */
   .nav-menu {
+    z-index: 9999;
     position: fixed;
     top: 0;
     right: -100%;
@@ -879,6 +905,7 @@
   background: #0D3B2E;
   border: 1px solid #8C7323;
   color: #FFFFFF;
+  z-index: 1000000000000000000000000;
 }
 
 .search-form-grid {
@@ -2722,4 +2749,292 @@ body.dark .site-footer {
   .filter-btn {
     white-space: nowrap;
   }
+}
+
+
+/* --- FIXED STICKY NAVBAR STYLES --- */
+
+.navbar-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--bg-nav, #ffffff);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  /* DO NOT PUT overflow: hidden HERE */
+}
+
+/* Base Body Containment to prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Dark Backdrop Overlay */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9998; /* Under drawer, above page content */
+}
+
+.sidebar-backdrop.active {
+  display: block;
+}
+
+
+/* --- SINGLE CLEAN MOBILE MEDIA QUERY --- */
+@media (max-width: 992px) {
+
+  /* Show Hamburger Button */
+  .mobile-toggle-btn {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    z-index: 1001;
+  }
+
+  .mobile-toggle-btn .bar {
+    width: 24px;
+    height: 2.5px;
+    background-color: #0D3B2E;
+    border-radius: 2px;
+  }
+
+  /* Show Close Button inside Sidebar */
+  .close-sidebar-btn {
+    display: block !important;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #0D3B2E;
+    cursor: pointer;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  /* MOBILE DRAWER (NAV MENU) */
+  .nav-menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    transform: translateX(100%); /* Keeps off-screen without expanding page width */
+    width: 85% !important;
+    max-width: 360px !important;
+    height: 100vh !important;
+    background: #FFFFFF !important;
+    z-index: 9999 !important; /* Forces drawer on top of everything */
+    padding: 2rem 1.5rem !important;
+    
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.8rem !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25) !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow-y: auto !important;
+  }
+
+  /* Slide-in class added by JS */
+  .nav-menu.mobile-active {
+    transform: translateX(0) !important;
+  }
+
+  /* Force links and items to show inside drawer */
+  .nav-menu .nav-item,
+  .nav-menu .dropdown-item,
+  .nav-menu .dropdown-trigger {
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    color: #0D3B2E !important;
+    font-size: 1rem !important;
+    /* z-index: 1000999999999999999999999999999999999999999999999999999999999999999999999999999999999 !important; */
+  }
+
+  /* Accordion Megamenu adjustment */
+  .dropdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mega-menu {
+    position: static !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(13, 59, 46, 0.12) !important;
+    border-radius: 12px;
+    background: #F8FAFC !important;
+    padding: 1rem !important;
+    margin-top: 0.5rem;
+    width: 100% !important;
+    display: none;
+  }
+
+  .dropdown-item.active .mega-menu {
+    display: block !important;
+  }
+}
+
+/* Ensure the parent sticky navbar does not restrict fixed elements */
+.navbar-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--bg-nav, #ffffff);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: visible !important; /* Prevents drawer clipping */
+}
+
+/* Sidebar Dark Backdrop Overlay */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9998;
+}
+
+.sidebar-backdrop.active {
+  display: block !important;
+}
+
+/* Default state: Hide mobile-only buttons on desktop */
+.mobile-toggle-btn,
+.close-sidebar-btn {
+  display: none;
+}
+
+/* ================= MOBILE NAVIGATION DRAWER (Screen width <= 992px) ================= */
+@media (max-width: 992px) {
+
+  /* Display Hamburger Button */
+  .mobile-toggle-btn {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+  }
+
+  .mobile-toggle-btn .bar {
+    width: 25px;
+    height: 2.5px;
+    background-color: #0D3B2E; /* Update matching your theme color */
+    border-radius: 2px;
+  }
+
+  /* Mobile Drawer Box Setup */
+  .nav-menu {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 85% !important;
+    max-width: 380px !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: #FFFFFF !important;
+    z-index: 9999 !important;
+    padding: 2rem 1.5rem !important;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3) !important;
+    
+    /* Off-screen by default via translateX for smooth hardware accelerated animation */
+    transform: translateX(100%) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.2rem !important;
+    overflow-y: auto !important;
+  }
+
+  /* Slide In State Triggered by JS */
+  .nav-menu.mobile-active {
+    transform: translateX(0) !important;
+  }
+
+  /* Inside Drawer Close Button */
+  .close-sidebar-btn {
+    display: block !important;
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: #0D3B2E;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Mobile Mega Menu Sub-lists Accordion Display */
+  .mega-menu {
+    display: none;
+    position: static !important;
+    box-shadow: none !important;
+    padding: 1rem !important;
+    background: #F8FAFC !important;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-item.open .mega-menu {
+    display: block !important;
+  }
+}
+
+/* Ensure Search Overlay sits ABOVE the Mobile Sidebar Drawer */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+  /* Priority z-index higher than sidebar (9999) */
+  z-index: 100000000000000000000000000000000000000000000000000000000000000000000000000 !important; 
+  
+  display: none; /* Controlled by active class or JS */
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* Active state when search is triggered */
+.search-overlay.active {
+  display: flex !important;
 }
