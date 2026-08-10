@@ -511,7 +511,7 @@ html, body {
   .mobile-toggle-btn .bar {
     width: 24px;
     height: 2.5px;
-    background-color: #0D3B2E;
+    background-color: #498b78;
     border-radius: 2px;
   }
 
@@ -2950,7 +2950,7 @@ html, body {
   .mobile-toggle-btn .bar {
     width: 25px;
     height: 2.5px;
-    background-color: #0D3B2E; /* Update matching your theme color */
+    background-color: #98cfbf; /* Update matching your theme color */
     border-radius: 2px;
   }
 
