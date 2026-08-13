@@ -18,17 +18,17 @@
       <img src="assets/media/images/mili.png" alt="MILAGRO Logo" class="nav-logo">
     </a>
 
-    <!-- NEW: Hamburger Button (Only visible on mobile) -->
+    <!-- Hamburger Button (Mobile) -->
     <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Open Menu">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
     </button>
 
-    <!-- Center Navigation Links (Becomes Mobile Sidebar) -->
+    <!-- Center Navigation Links (Desktop & Mobile) -->
     <nav class="nav-menu" id="navMenu">
       
-      <!-- NEW: Mobile Close Button (Only visible inside mobile sidebar) -->
+      <!-- Mobile Close Button -->
       <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">&times;</button>
 
       <!-- Search Trigger Button -->
@@ -51,38 +51,38 @@
             <div class="mega-col">
               <h4>Local</h4>
               <ul>
-                <li><a href="#" data-filter="near-me">Properties Near Me</a></li>
+                <li><a href="properties.html?filter=near-me" id="nearMeLink" data-filter="near-me">Properties Near Me</a></li>
               </ul>
             </div>
             <!-- Column 2: Worldwide -->
             <div class="mega-col">
               <h4>Worldwide</h4>
               <ul>
-                <li><a href="#">View Properties Globally</a></li>
-                <li><a href="#">New Development Projects</a></li>
-                <li><a href="#">Properties Coming Soon</a></li>
-                <li><a href="#">Properties for Auction</a></li>
-                <li><a href="#">Properties by Lifestyle</a></li>
-                <li><a href="#">Properties by Destination</a></li>
-                <li><a href="#">Properties with Videos</a></li>
-                <li><a href="#">Properties with Virtual Reality</a></li>
+                <li><a href="properties.html?type=worldwide">View Properties Globally</a></li>
+                <li><a href="properties.html?type=new-development">New Development Projects</a></li>
+                <li><a href="properties.html?type=coming-soon">Properties Coming Soon</a></li>
+                <li><a href="properties.html?type=auction">Properties for Auction</a></li>
+                <li><a href="properties.html?type=lifestyle">Properties by Lifestyle</a></li>
+                <li><a href="properties.html?type=destination">Properties by Destination</a></li>
+                <li><a href="properties.html?media=video">Properties with Videos</a></li>
+                <li><a href="properties.html?media=vr">Properties with Virtual Reality</a></li>
               </ul>
             </div>
             <!-- Column 3: Cities & Developments -->
             <div class="mega-col">
               <h4>Popular Cities</h4>
               <ul>
-                <li><a href="#">New York</a></li>
-                <li><a href="#">Los Angeles</a></li>
-                <li><a href="#">The Hamptons</a></li>
-                <li><a href="#">London</a></li>
-                <li><a href="#">Dubai</a></li>
-                <li><a href="#">Paris</a></li>
+                <li><a href="properties.html?city=new-york">New York</a></li>
+                <li><a href="properties.html?city=los-angeles">Los Angeles</a></li>
+                <li><a href="properties.html?city=the-hamptons">The Hamptons</a></li>
+                <li><a href="properties.html?city=london">London</a></li>
+                <li><a href="properties.html?city=dubai">Dubai</a></li>
+                <li><a href="properties.html?city=paris">Paris</a></li>
               </ul>
               <h4 class="mt-section">New Developments</h4>
               <ul>
-                <li><a href="#">Discover Developments</a></li>
-                <li><a href="#">Development Overview</a></li>
+                <li><a href="developments.html">Discover Developments</a></li>
+                <li><a href="developments.html#overview">Development Overview</a></li>
               </ul>
             </div>
           </div>
@@ -102,15 +102,15 @@
             <div class="mega-col">
               <h4>Local Experts</h4>
               <ul>
-                <li><a href="#">Your Local Agents</a></li>
-                <li><a href="#">Your Local Offices</a></li>
+                <li><a href="agents.html?filter=local-agents">Your Local Agents</a></li>
+                <li><a href="agents.html?filter=local-offices">Your Local Offices</a></li>
               </ul>
             </div>
             <div class="mega-col">
               <h4>Worldwide Network</h4>
               <ul>
-                <li><a href="#">Search Agents Globally</a></li>
-                <li><a href="#">Search Offices Globally</a></li>
+                <li><a href="agents.html?filter=global-agents">Search Agents Globally</a></li>
+                <li><a href="agents.html?filter=global-offices">Search Offices Globally</a></li>
               </ul>
             </div>
           </div>
@@ -118,13 +118,12 @@
       </div>
 
       <!-- About Us -->
-      <a href="#about" class="nav-item nav-link">About Us</a>
+      <a href="about.html" class="nav-item nav-link">About Us</a>
 
     </nav>
 
     <!-- Right Utility Actions -->
     <div class="nav-actions">
-      <!-- Dark/Light Theme Switcher -->
       <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
         <span class="sun-icon">☀️</span>
         <span class="moon-icon">🌙</span>
@@ -134,7 +133,7 @@
 
   </div>
 
-  <!-- Search Modal / Dropdown Layer -->
+  <!-- Search Modal Layer -->
   <div class="search-overlay" id="searchOverlay">
     <div class="search-box-card">
       <div class="search-box-header">
@@ -142,13 +141,11 @@
         <button class="close-search-btn" id="closeSearchBtn">&times;</button>
       </div>
       
-      <!-- Search Controls -->
       <div class="search-input-wrapper">
         <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         <input type="text" id="searchInput" placeholder="Type city, neighborhood, zip code or property type..." autocomplete="off">
       </div>
 
-      <!-- Filter Tags -->
       <div class="search-filter-pills">
         <span class="filter-label">Filter:</span>
         <button class="filter-btn active" data-type="all">All</button>
@@ -159,14 +156,12 @@
         <button class="filter-btn" data-type="more">More</button>
       </div>
 
-      <!-- JS Live Results Drawer -->
       <div class="search-results-container" id="searchResults">
         <p class="search-hint">Type above or click a filter category to see matching property listings.</p>
       </div>
     </div>
   </div>
 
-  <!-- NEW: Backdrop Dark Layer for Mobile Sidebar -->
   <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 </header>
 
