@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate & Property Management | MILAGRO</title>
+  <link rel="stylesheet" href="assets/css/real.css">
+  <link rel="stylesheet" href="assets/css/agents.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sticky Premium Navigation Bar -->
+  <header class="navbar-sticky">
+  <div class="nav-container">
+    
+    <!-- Brand Logo (Left) -->
+    <a href="index.html" class="nav-brand">
+      <img src="assets/media/images/mili.png" alt="MILAGRO Logo" class="nav-logo">
+    </a>
+
+    <!-- Hamburger Button (Mobile) -->
+    <button class="mobile-toggle-btn" id="mobileToggle" aria-label="Open Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Center Navigation Links (Desktop & Mobile) -->
+    <nav class="nav-menu" id="navMenu">
+      
+      <!-- Mobile Close Button -->
+      <button class="close-sidebar-btn" id="closeSidebarBtn" aria-label="Close Menu">&times;</button>
+
+      <!-- Search Trigger Button -->
+      <button class="nav-item search-trigger-btn" id="searchToggle">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search</span>
+      </button>
+
+      <!-- Properties Mega Menu Item -->
+      <div class="nav-item dropdown-item">
+        <button class="dropdown-trigger">Properties <span class="arrow">▾</span></button>
+        
+        <div class="mega-menu" id="propertiesMenu">
+          <div class="mega-header">
+            <span class="mega-title">Property Listings</span>
+            <button class="close-dropdown-btn">&times;</button>
+          </div>
+          <div class="mega-grid three-columns">
+            <!-- Column 1: Local -->
+            <div class="mega-col">
+              <h4>Local</h4>
+              <ul>
+                <li><a href="properties.html?filter=near-me" id="nearMeLink" data-filter="near-me">Properties Near Me</a></li>
+              </ul>
+            </div>
+            <!-- Column 2: Worldwide -->
+            <div class="mega-col">
+              <h4>Worldwide</h4>
+              <ul>
+                <li><a href="properties.html?type=worldwide">View Properties Globally</a></li>
+                <li><a href="properties.html?type=new-development">New Development Projects</a></li>
+                <li><a href="properties.html?type=coming-soon">Properties Coming Soon</a></li>
+                <li><a href="properties.html?type=auction">Properties for Auction</a></li>
+                <li><a href="properties.html?type=lifestyle">Properties by Lifestyle</a></li>
+                <li><a href="properties.html?type=destination">Properties by Destination</a></li>
+                <li><a href="properties.html?media=video">Properties with Videos</a></li>
+                <li><a href="properties.html?media=vr">Properties with Virtual Reality</a></li>
+              </ul>
+            </div>
+            <!-- Column 3: Cities & Developments -->
+            <div class="mega-col">
+              <h4>Popular Cities</h4>
+              <ul>
+                <li><a href="properties.html?city=new-york">New York</a></li>
+                <li><a href="properties.html?city=los-angeles">Los Angeles</a></li>
+                <li><a href="properties.html?city=the-hamptons">The Hamptons</a></li>
+                <li><a href="properties.html?city=london">London</a></li>
+                <li><a href="properties.html?city=dubai">Dubai</a></li>
+                <li><a href="properties.html?city=paris">Paris</a></li>
+              </ul>
+              <h4 class="mt-section">New Developments</h4>
+              <ul>
+                <li><a href="developments.html">Discover Developments</a></li>
+                <li><a href="developments.html#overview">Development Overview</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agents Mega Menu Item -->
+      <div class="nav-item dropdown-item">
+        <button class="dropdown-trigger">Agents <span class="arrow">▾</span></button>
+        
+        <div class="mega-menu" id="agentsMenu">
+          <div class="mega-header">
+            <span class="mega-title">Our Advisors & Offices</span>
+            <button class="close-dropdown-btn">&times;</button>
+          </div>
+          <div class="mega-grid two-columns">
+            <div class="mega-col">
+              <h4>Local Experts</h4>
+              <ul>
+                <li><a href="agents.html?filter=local-agents">Your Local Agents</a></li>
+                <li><a href="agents.html?filter=local-offices">Your Local Offices</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <h4>Worldwide Network</h4>
+              <ul>
+                <li><a href="agents.html?filter=global-agents">Search Agents Globally</a></li>
+                <li><a href="agents.html?filter=global-offices">Search Offices Globally</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Us -->
+      <a href="about.html" class="nav-item nav-link">About Us</a>
+
+    </nav>
+
+    <!-- Right Utility Actions -->
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+      <a href="#contact" class="nav-cta-btn">Contact Us</a>
+    </div>
+
+  </div>
+
+  <!-- Search Modal Layer -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box-card">
+      <div class="search-box-header">
+        <h3>Search Properties & Management</h3>
+        <button class="close-search-btn" id="closeSearchBtn">&times;</button>
+      </div>
+      
+      <div class="search-input-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="Type city, neighborhood, zip code or property type..." autocomplete="off">
+      </div>
+
+      <div class="search-filter-pills">
+        <span class="filter-label">Filter:</span>
+        <button class="filter-btn active" data-type="all">All</button>
+        <button class="filter-btn" data-type="buy">Buy</button>
+        <button class="filter-btn" data-type="rent">Rent</button>
+        <button class="filter-btn" data-type="developments">Developments</button>
+        <button class="filter-btn" data-type="sell">Sell</button>
+        <button class="filter-btn" data-type="more">More</button>
+      </div>
+
+      <div class="search-results-container" id="searchResults">
+        <p class="search-hint">Type above or click a filter category to see matching property listings.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+</header>
+
+    <main class="agents-page">
+  
+  <!-- Section 1: Hero & Dynamic Filter Bar -->
+  <section class="agents-hero">
+    <div class="hero-container">
+      <span class="sub-heading">Global Distinction • Local Expertise</span>
+      <h1>Meet Our Private Advisors & Regional Offices</h1>
+      <p>Connect with distinguished real estate professionals offering discreet, high-tier advisory worldwide.</p>
+
+      <!-- Search & Tab Filter Box -->
+      <div class="agent-search-box">
+        <div class="search-input-group">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="agentSearchInput" placeholder="Search by name, city, spoken language, or market area..." autocomplete="off">
+        </div>
+
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-tab="all">All Advisors</button>
+          <button class="tab-btn" data-tab="local-agents">Local Experts</button>
+          <button class="tab-btn" data-tab="global-agents">Global Network</button>
+          <button class="tab-btn" data-tab="offices">Regional Offices</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Advisors & Offices Grid Container -->
+  <section class="agents-directory-section">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="directory-header">
+        <h2 id="directoryTitle">Featured Advisors</h2>
+        <span class="results-count" id="resultsCount">Showing 6 Advisors</span>
+      </div>
+
+      <!-- Agents Grid (Dynamically Populated / SSR Ready) -->
+      <div class="agents-grid" id="agentsGrid">
+        
+        <!-- Agent Card Sample 1 -->
+        <article class="agent-card" data-category="local-agents" data-region="local">
+          <div class="card-image-wrapper">
+            <img src="assets/media/images/agent-1.jpg" alt="Advisor Portrait" loading="lazy">
+            <span class="badge luxury">Managing Director</span>
+          </div>
+          <div class="card-content">
+            <h3 class="agent-name">Alexander Wright</h3>
+            <p class="agent-title">Senior Luxury Private Advisor</p>
+            <p class="agent-location">📍 New York & The Hamptons</p>
+            
+            <div class="agent-stats">
+              <div><strong>12+</strong> <span>Yrs Exp.</span></div>
+              <div><strong>$250M+</strong> <span>Volume</span></div>
+              <div><strong>4</strong> <span>Languages</span></div>
+            </div>
+
+            <div class="agent-actions">
+              <a href="tel:+1234567890" class="action-btn icon-only" aria-label="Call Agent">📞</a>
+              <a href="mailto:alexander@milagro.com" class="action-btn icon-only" aria-label="Email Agent">✉️</a>
+              <a href="agent-detail.html?id=1" class="action-btn primary-btn">View Portfolio</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Agent Card Sample 2 -->
+        <article class="agent-card" data-category="global-agents" data-region="global">
+          <div class="card-image-wrapper">
+            <img src="assets/media/images/agent-2.jpg" alt="Advisor Portrait" loading="lazy">
+            <span class="badge">International Luxury</span>
+          </div>
+          <div class="card-content">
+            <h3 class="agent-name">Elena Rostova</h3>
+            <p class="agent-title">Head of European Acquisitions</p>
+            <p class="agent-location">📍 London & Paris</p>
+            
+            <div class="agent-stats">
+              <div><strong>15+</strong> <span>Yrs Exp.</span></div>
+              <div><strong>$410M+</strong> <span>Volume</span></div>
+              <div><strong>3</strong> <span>Languages</span></div>
+            </div>
+
+            <div class="agent-actions">
+              <a href="tel:+1234567891" class="action-btn icon-only" aria-label="Call Agent">📞</a>
+              <a href="mailto:elena@milagro.com" class="action-btn icon-only" aria-label="Email Agent">✉️</a>
+              <a href="agent-detail.html?id=2" class="action-btn primary-btn">View Portfolio</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Office Card Sample (Shows when "Offices" Filter is selected) -->
+        <article class="agent-card office-card" data-category="offices" data-region="global">
+          <div class="card-image-wrapper">
+            <img src="assets/media/images/office-dubai.jpg" alt="Dubai Office" loading="lazy">
+            <span class="badge luxury">Flagship Office</span>
+          </div>
+          <div class="card-content">
+            <h3 class="agent-name">Dubai Flagship Office</h3>
+            <p class="agent-title">Milagro Real Estate LLC</p>
+            <p class="agent-location">📍 Downtown Dubai, UAE</p>
+            
+            <p class="office-desc">Specializing in penthouse residences, off-plan ultra-luxury developments, and private islands.</p>
+
+            <div class="agent-actions">
+              <a href="tel:+971000000" class="action-btn icon-only" aria-label="Call Office">📞</a>
+              <a href="contact.html?office=dubai" class="action-btn primary-btn">Contact Office</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Luxury Career CTA -->
+  <section class="join-network-cta">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Are You an Established Luxury Advisor?</h2>
+        <p>Join our exclusive international network and elevate your real estate practice with proprietary global marketing capabilities.</p>
+        <a href="contact.html?subject=careers" class="cta-btn-gold">Apply to Join Network</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+        <footer class="site-footer" id="footer">
+  <div class="footer-container">
+    
+    <!-- TOP SECTION: Brand Logo & Main Navigation Columns -->
+    <div class="footer-top-grid">
+      
+      <!-- Brand Column -->
+      <div class="footer-brand-col">
+        <a href="#" class="footer-logo">
+          <span class="logo-text-main">MILAGRO</span>
+          <span class="logo-text-sub">INTEGRATED SERVICE</span>
+        </a>
+        <p class="footer-tagline">
+          Connecting premier properties across Lagos, Abuja, Ibadan, Oyo, and Jos to a global network of buyers and investors.
+        </p>
+        <div class="footer-lang-selector">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>English (Nigeria)</span>
+        </div>
+      </div>
+
+      <!-- Column 1: Company -->
+      <div class="footer-nav-col">
+        <h4 class="footer-col-title">Company</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Us <span class="nav-arrow">→</span></a></li>
+          <li><a href="#luxury-outlook">Luxury Outlook <span class="nav-arrow">→</span></a></li>
+          <li><a href="#giving-back">Giving Back & Impact <span class="nav-arrow">→</span></a></li>
+          <li><a href="#press">Recent Press <span class="nav-arrow">→</span></a></li>
+          <li><a href="#press-releases">Brand Press Releases <span class="nav-arrow">→</span></a></li>
+          <li><a href="#careers">Join Our Network <span class="nav-arrow">→</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Tech & Media -->
+      <div class="footer-nav-col">
+        <h4 class="footer-col-title">Prop-Tech & Apps</h4>
+        <ul class="footer-links">
+          <li><a href="#mobile-app">Milagro Mobile App <span class="nav-arrow">→</span></a></li>
+          <li><a href="#tv-app">Milagro Smart TV App <span class="nav-arrow">→</span></a></li>
+          <li><a href="#virtual-reality">3D Virtual Reality Tours <span class="nav-arrow">→</span></a></li>
+          <li><a href="#auction-services">Concierge Property Auctions <span class="nav-arrow">→</span></a></li>
+          <li><a href="#advisory">Institute of Real Estate <span class="nav-arrow">→</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact & Legal Directives -->
+      <div class="footer-nav-col">
+        <h4 class="footer-col-title">Compliance & Terms</h4>
+        <ul class="footer-links">
+          <li><a href="#contact">Contact Us <span class="nav-arrow">→</span></a></li>
+          <li><a href="#fair-housing">Fair Housing Statement <span class="nav-arrow">→</span></a></li>
+          <li><a href="#privacy">Privacy Policy <span class="nav-arrow">→</span></a></li>
+          <li><a href="#terms">Terms of Use <span class="nav-arrow">→</span></a></li>
+          <li><a href="#accessibility">Accessibility Statement <span class="nav-arrow">→</span></a></li>
+          <li><a href="#cookies">Cookie Preferences <span class="nav-arrow">→</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- MIDDLE SECTION: Social Media Network Links -->
+    <div class="footer-social-bar">
+      <span class="social-label">Connect With Milagro:</span>
+      <div class="social-icon-group">
+        <a href="#" class="social-btn" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="X / Twitter">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#000"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.29-2.73.74-5.5 2.68-7.38 1.63-1.61 3.94-2.48 6.22-2.31.02 1.38.01 2.75.01 4.13-.99-.06-2.01.21-2.82.79-.88.61-1.43 1.62-1.47 2.69-.07 1.34.61 2.65 1.74 3.32 1.02.63 2.33.68 3.4.15 1.07-.5 1.77-1.57 1.83-2.76.01-3.99.01-7.98.01-11.97z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- TECHNICAL SEPARATOR LINE -->
+    <div class="footer-divider"></div>
+
+    <!-- BOTTOM SECTION: Disclaimers & Copyright -->
+    <div class="footer-disclaimer-box">
+      <p class="disclaimer-text">
+        <strong>Do Not Sell or Share My Personal Information.</strong> Milagro Integrated Service Network maintains strict compliance with fair housing regulations, consumer protection mandates, and equal opportunity standards across all operated territories.
+      </p>
+      
+      <p class="disclaimer-text">
+        Copyright © 2006-2026 <strong>Milagro Integrated Service Network LLC.</strong> All Rights Reserved. Each regional office and franchise advisory hub is independently owned and operated. Milagro Integrated Service, the Milagro crest, and "For the Ongoing Collection of Exceptional Properties" are registered service marks.
+      </p>
+
+      <p class="disclaimer-text micro-text">
+        The information set forth on this platform is derived from sources considered reliable, but because it is supplied by third parties, developers, and regional network affiliates, we cannot represent that it is accurate or complete, and it should not be relied upon as such. Offerings are subject to errors, omissions, price updates, or withdrawal without prior notice. All property dimensions and land parameters are approximate and should be independently verified through certified survey professionals, licensed architects, or civil engineers.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+  <script src="assets/js/real.js"></script>
+  <script src="assets/js/total.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/sidebar.js"></script>
+  <script src="assets/js/agents.js"></script>
+
+
+
+<body>
+</html>
