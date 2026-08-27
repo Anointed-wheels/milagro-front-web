@@ -354,10 +354,12 @@ html, body {
   display: flex;
   align-items: center;
   text-decoration: none;
+  background-color: #e5e8ec;
+  border-radius: 20px;
 }
 
 .nav-logo {
-  height: 45px;
+  height: 55px;
   width: auto;
   object-fit: contain;
 }
